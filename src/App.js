@@ -1,5 +1,5 @@
-import HomePage from "./HomePage";
-import "./App.css";
+import HomePage from "./views/HomePage";
+import "./styles/App.css";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 function App() {
@@ -7,19 +7,19 @@ function App() {
   const theme = createTheme({
     palette: {
       secondary: {
-        main: '#000'
+        main: '#0DBF65'
       },
       primary: {
-        main: '#0DBF65'
+        main: '#000'
       }
     },
-    typography: {
-      "fontFamily": `"PMingLiu", sans-serif`,
-      "fontSize": 14,
-      "fontWeightLight": 300,
-      "fontWeightRegular": 400,
-      "fontWeightMedium": 500
-     }
+    // typography: {
+    //   "fontFamily": `"roboto", "PMingLiu", sans-serif`,
+    //   "fontSize": 14,
+    //   "fontWeightLight": 300,
+    //   "fontWeightRegular": 400,
+    //   "fontWeightMedium": 500
+    //  }
   });
   return (
     <div className="App">
