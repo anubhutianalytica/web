@@ -1,6 +1,6 @@
 import logo from "../assets/logos/logo.png";
 import "../styles/HomePage.css";
-import Navbar from "./Navbar";
+import Navbar from "./navigation/Navbar";
 
 export default function HomePage() {
   return (
