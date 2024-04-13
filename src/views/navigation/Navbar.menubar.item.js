@@ -8,7 +8,6 @@ export default function NavbarMenubarItem( {text}) {
       variant="h6"
       noWrap
       component="a"
-      href="#app-bar-with-responsive-menu"
       sx={{
         ml: 5,
         fontFamily: "monospace",

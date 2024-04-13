@@ -7,10 +7,11 @@ import "../../styles/Navbar.css";
 import NavbarLogobar from "./Navbar.logobar";
 import NavbarMenubar from "./Navbar.menubar";
 import NavbarSearch from "./Navbar.search";
+import useMediaQuery from '@mui/material/useMediaQuery';
 
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
+export default function Navbar() {
+  const mobileView = useMediaQuery(theme => theme.breakpoints.down('lg'));
 
-function Navbar() {
   return (
     <AppBar position="static">
       <Container maxWidth="x2">
@@ -25,9 +26,11 @@ function Navbar() {
           >
             <NavbarLogobar />
           </Box>
-          <Box sx={{ flexGrow: 5, justifyContent: "flex-end" }}>
-            <NavbarSearch />
-          </Box>
+          {!mobileView && (
+            <Box sx={{ flexGrow: 5, justifyContent: "flex-end" }}>
+              <NavbarSearch />
+            </Box>
+          )}
           <Box
             sx={{ flexGrow: 5, display: "flex", justifyContent: "flex-end" }}
           >
@@ -38,4 +41,3 @@ function Navbar() {
     </AppBar>
   );
 }
-export default Navbar;
