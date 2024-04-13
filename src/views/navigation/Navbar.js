@@ -8,6 +8,7 @@ import NavbarLogobar from "./Navbar.logobar";
 import NavbarMenubar from "./Navbar.menubar";
 import NavbarSearch from "./Navbar.search";
 import useMediaQuery from '@mui/material/useMediaQuery';
+import NavbarMenubarDrawer from "./Navbar.menubar.drawer";
 
 export default function Navbar() {
   const mobileView = useMediaQuery(theme => theme.breakpoints.down('lg'));
@@ -34,7 +35,7 @@ export default function Navbar() {
           <Box
             sx={{ flexGrow: 5, display: "flex", justifyContent: "flex-end" }}
           >
-            <NavbarMenubar />
+            {mobileView ? <NavbarMenubarDrawer /> : <NavbarMenubar />} 
           </Box>
         </Toolbar>
       </Container>
