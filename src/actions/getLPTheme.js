@@ -15,16 +15,16 @@ export const brand = {
 };
 
 export const secondary = {
-  50: '#F9F0FF',
-  100: '#E9CEFD',
-  200: '#D49CFC',
-  300: '#B355F6',
-  400: '#750AC2',
-  500: '#6709AA',
-  600: '#490679',
-  700: '#3B0363',
-  800: '#2F024F',
-  900: '#23023B',
+  50: '#F0F8FF',
+  100: '#CDE5FC',
+  200: '#9ABEFA',
+  300: '#6798F8',
+  400: '#3582F5',
+  500: '#48ACF0', // Main secondary color
+  600: '#0F59E8',
+  700: '#0C49BC',
+  800: '#0A3C8F',
+  900: '#072F63',
 };
 
 export const gray = {
