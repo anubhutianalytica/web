@@ -1,4 +1,5 @@
 import * as React from "react";
+import PropTypes from "prop-types";
 
 import MenuIcon from "@mui/icons-material/Menu";
 import AppBar from "@mui/material/AppBar";
@@ -10,7 +11,10 @@ import Drawer from "@mui/material/Drawer";
 import MenuItem from "@mui/material/MenuItem";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import logo from "../../assets/logos/Logo_white_NoBG.png";
+import whiteLogo from "../../assets/logos/Logo_white_NoBG.png";
+import blackLogo from "../../assets/logos/Logo_NoBG.png";
+import { useTheme } from "@mui/system";
+import ToggleColorMode from "../ToggleColorMode";
 
 const logoStyle = {
   width: "140px",
@@ -18,8 +22,10 @@ const logoStyle = {
   cursor: "pointer",
 };
 
-function NavBar() {
+function NavBar({ mode, toggleColorMode }) {
   const [open, setOpen] = React.useState(false);
+  const theme = useTheme();
+  const logo = theme.palette.mode === "light" ? blackLogo : whiteLogo;
 
   const toggleDrawer = (newOpen) => () => {
     setOpen(newOpen);
@@ -129,6 +135,12 @@ function NavBar() {
                     FAQ
                   </Typography>
                 </MenuItem>
+                <MenuItem sx={{ py: "6px", px: "12px" }}>
+                  <ToggleColorMode
+                    mode={mode}
+                    toggleColorMode={toggleColorMode}
+                  />
+                </MenuItem>
               </Box>
             </Box>
             <Box sx={{ display: { sm: "", md: "none" } }}>
@@ -173,6 +185,12 @@ function NavBar() {
                   <MenuItem onClick={() => scrollToSection("faq")}>
                     FAQ
                   </MenuItem>
+                  <MenuItem>
+                    <ToggleColorMode
+                      mode={mode}
+                      toggleColorMode={toggleColorMode}
+                    />
+                  </MenuItem>
                   <Divider />
                   <MenuItem>
                     <Button
@@ -195,5 +213,9 @@ function NavBar() {
     </div>
   );
 }
+NavBar.propTypes = {
+  mode: PropTypes.oneOf(["dark", "light"]).isRequired,
+  toggleColorMode: PropTypes.func.isRequired,
+};
 
 export default NavBar;
