@@ -1,6 +1,6 @@
-import HomePage from "./views/HomePage";
 import "./styles/App.css";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import LandingPage from "./views/LandingPage";
 
 function App() {
 
@@ -25,7 +25,7 @@ function App() {
     <div className="App">
       <ThemeProvider theme={theme}>
       <header className="App-header">
-        <HomePage />
+        <LandingPage/>
       </header>
       </ThemeProvider>
     </div>
