@@ -1,5 +1,5 @@
-import * as React from "react";
 import PropTypes from "prop-types";
+import * as React from "react";
 
 import MenuIcon from "@mui/icons-material/Menu";
 import AppBar from "@mui/material/AppBar";
@@ -10,11 +10,11 @@ import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
 import MenuItem from "@mui/material/MenuItem";
 import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
-import whiteLogo from "../../assets/logos/Logo_white_NoBG.png";
-import blackLogo from "../../assets/logos/Logo_NoBG.png";
 import { useTheme } from "@mui/system";
-import ToggleColorMode from "../ToggleColorMode";
+import ToggleColorMode from "../../actions/ToggleColorMode";
+import blackLogo from "../../assets/logos/Logo_NoBG.png";
+import whiteLogo from "../../assets/logos/Logo_white_NoBG.png";
+import NavBarMenuItem from "./AppBar.MenuItem";
 
 const logoStyle = {
   width: "140px",
@@ -95,46 +95,26 @@ function NavBar({ mode, toggleColorMode }) {
                 />
               </Box>
               <Box sx={{ display: { xs: "none", md: "flex" } }}>
-                <MenuItem
+                <NavBarMenuItem
+                  text={"Features"}
                   onClick={() => scrollToSection("features")}
-                  sx={{ py: "6px", px: "12px", ml: "15px" }}
-                >
-                  <Typography variant="body2" color="text.primary">
-                    Features
-                  </Typography>
-                </MenuItem>
-                <MenuItem
+                />
+                <NavBarMenuItem
+                  text={"Testimonials"}
                   onClick={() => scrollToSection("testimonials")}
-                  sx={{ py: "6px", px: "12px" }}
-                >
-                  <Typography variant="body2" color="text.primary">
-                    Testimonials
-                  </Typography>
-                </MenuItem>
-                <MenuItem
+                />
+                <NavBarMenuItem
+                  text={"Highlights"}
                   onClick={() => scrollToSection("highlights")}
-                  sx={{ py: "6px", px: "12px" }}
-                >
-                  <Typography variant="body2" color="text.primary">
-                    Highlights
-                  </Typography>
-                </MenuItem>
-                <MenuItem
+                />
+                <NavBarMenuItem
+                  text={"Pricing"}
                   onClick={() => scrollToSection("pricing")}
-                  sx={{ py: "6px", px: "12px" }}
-                >
-                  <Typography variant="body2" color="text.primary">
-                    Pricing
-                  </Typography>
-                </MenuItem>
-                <MenuItem
+                />
+                <NavBarMenuItem
+                  text={"FAQ"}
                   onClick={() => scrollToSection("faq")}
-                  sx={{ py: "6px", px: "12px" }}
-                >
-                  <Typography variant="body2" color="text.primary">
-                    FAQ
-                  </Typography>
-                </MenuItem>
+                />
                 <MenuItem sx={{ py: "6px", px: "12px" }}>
                   <ToggleColorMode
                     mode={mode}

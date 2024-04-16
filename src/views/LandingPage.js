@@ -5,15 +5,15 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import getLPTheme from '../actions/getLPTheme';
-import FAQ from './FAQ';
-import Features from './Features';
-import Footer from './Footer';
-import Hero from './Hero';
-import Highlights from './Highlights';
-import LogoCollection from './LogoCollection';
-import Pricing from './Pricing';
-import Testimonials from './Testimonials';
-import NavBar from './navigation/AppBar';
+import FAQ from '../components/FAQ';
+import Features from '../components/Features';
+import Footer from '../components/Footer';
+import Hero from '../components/Hero';
+import Highlights from '../components/Highlights';
+import LogoCollection from '../components/LogoCollection';
+import Pricing from '../components/Pricing';
+import Testimonials from '../components/Testimonials';
+import NavBar from '../components/navigation/AppBar';
 
 export default function LandingPage() {
   const [mode, setMode] = React.useState('light');
