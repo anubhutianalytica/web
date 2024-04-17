@@ -40,7 +40,7 @@ export default function Hero() {
               fontSize: "clamp(3.5rem, 10vw, 4rem)",
             }}
           >
-            The New Standard in&nbsp;
+            Delivering
             <Typography
               component="span"
               variant="h1"
@@ -52,17 +52,22 @@ export default function Hero() {
                     : "primary.light",
               }}
             >
-              Analytics
+              Impactful Services
             </Typography>
           </Typography>
           <Typography
             textAlign="center"
             color="text.secondary"
+            variant="h6"
             sx={{ alignSelf: "center", width: { sm: "100%", md: "80%" } }}
           >
-            Explore our cutting-edge dashboard, delivering high-quality
-            solutions tailored to your needs. Elevate your experience with
-            top-tier features and services.
+            We help our clients drive business success through comprehensive
+            business intelligence services, encompassing performance evaluation,
+            forecasting, customer segmentation and marketing analytics. Our
+            capabilities provide businesses with the tools and insights they
+            need to optimize their operations, improve decision-making, and
+            drive sustainable profitability in an increasingly competitive
+            business environment.
           </Typography>
           <Stack
             direction={{ xs: "column", sm: "row" }}
@@ -75,13 +80,6 @@ export default function Hero() {
               Start Today
             </Button>
           </Stack>
-          <Typography
-            variant="caption"
-            textAlign="center"
-            sx={{ opacity: 0.8 }}
-          >
-            This is a Demo Site currently with placeholder information
-          </Typography>
         </Stack>
         {/* <Box
           id="image"

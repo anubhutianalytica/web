@@ -15,39 +15,39 @@ import ThumbUpAltRoundedIcon from '@mui/icons-material/ThumbUpAltRounded';
 const items = [
   {
     icon: <SettingsSuggestRoundedIcon />,
-    title: 'Adaptable performance',
+    title: 'Cost Reduction',
     description:
-      'Our product effortlessly adjusts to your needs, boosting efficiency and simplifying your tasks.',
+      'Through performance evaluation and optimization, we help clients identify inefficiencies and streamline operations, reducing unnecessary expenses and improving cost-effectiveness.',
   },
   {
     icon: <ConstructionRoundedIcon />,
-    title: 'Built to last',
+    title: 'Risk Mitigation',
     description:
-      'Experience unmatched durability that goes above and beyond with lasting investment.',
+      'By forecasting market trends and identifying potential risks, we assist clients in implementing proactive strategies to mitigate risks and protect their bottom line.',
   },
   {
     icon: <ThumbUpAltRoundedIcon />,
-    title: 'Great user experience',
+    title: 'Strategic Decision Making',
     description:
-      'Integrate our product into your routine with an intuitive and easy-to-use interface.',
+      'Our analysis services provide clients with data-driven insights that inform strategic decision-making, enabling them to allocate resources effectively, target the right audience, and capitalize on opportunities for growth.',
   },
   {
     icon: <AutoFixHighRoundedIcon />,
-    title: 'Innovative functionality',
+    title: 'Market Competitiveness',
     description:
-      'Stay ahead with features that set new standards, addressing your evolving needs better than the rest.',
+      'With marketing analytics and customer segmentation, we help clients stay ahead of the competition by understanding customer preferences, tailoring offerings, and enhancing customer satisfaction and loyalty.',
   },
   {
     icon: <SupportAgentRoundedIcon />,
-    title: 'Reliable support',
+    title: 'Revenue Growth',
     description:
-      'Count on our responsive customer support, offering assistance that goes beyond the purchase.',
+      'By optimizing marketing strategies, targeting lucrative customer segments, and capitalizing on opportunities identified through data analysis, we drive revenue growth and improve overall profitability for our clients.',
   },
   {
     icon: <QueryStatsRoundedIcon />,
-    title: 'Precision in every detail',
+    title: 'Enhanced Customer Satisfaction and Retention',
     description:
-      'Enjoy a meticulously crafted product where small touches make a significant impact on your overall experience.',
+      'Through deep analysis of customer behavior and preferences, we help clients tailor their products, services, and marketing efforts to meet the specific needs of their customer segments, resulting in higher customer satisfaction, loyalty, and retention.',
   },
 ];
 

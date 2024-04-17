@@ -14,43 +14,44 @@ import CheckCircleRoundedIcon from "@mui/icons-material/CheckCircleRounded";
 
 const tiers = [
   {
-    title: "Free",
-    price: "0",
+    title: "Insight Essentials",
     description: [
-      "10 users included",
-      "2 GB of storage",
-      "Help center access",
-      "Email support",
+      "Performace evaluation",
+      "Forecasting",
+      "Customer Segmentation",
+      "Marketing Analytics",
+      "Detailed Consulting Reports",
     ],
-    buttonText: "Sign up for free",
+    buttonText: "Start now",
     buttonVariant: "outlined",
   },
   {
-    title: "Professional",
+    title: "Dashboard Dynamics",
     subheader: "Recommended",
-    price: "15",
     description: [
-      "20 users included",
-      "10 GB of storage",
-      "Help center access",
-      "Priority email support",
-      "Dedicated team",
-      "Best deals",
+      "Real-time Dashboarding",
+      "Performace evaluation",
+      "Forecasting",
+      "Customer Segmentation",
+      "Marketing Analytics",
+      "Detailed Consulting Reports",
+    ],
+    buttonText: "Start now",
+    buttonVariant: "outlined",
+  },
+  {
+    title: "Growth Accelerator",
+    description: [
+      "Quarterly Business Analysis Cycles",
+      "Real-time Dashboarding",
+      "Performace evaluation",
+      "Forecasting",
+      "Customer Segmentation",
+      "Marketing Analytics",
+      "Detailed Consulting Reports",
     ],
     buttonText: "Start now",
     buttonVariant: "contained",
-  },
-  {
-    title: "Enterprise",
-    price: "30",
-    description: [
-      "50 users included",
-      "30 GB of storage",
-      "Help center access",
-      "Phone & email support",
-    ],
-    buttonText: "Contact us",
-    buttonVariant: "outlined",
   },
 ];
 
@@ -59,8 +60,8 @@ export default function Pricing() {
     <Box
       id="pricing"
       sx={{
-        pt: { xs: 4, sm: 12 },
-        pb: { xs: 8, sm: 16 },
+        pt: { xs: 4, sm: 2 },
+        pb: { xs: 8, sm: 2 },
         color: "white",
       }}
     >
@@ -85,10 +86,9 @@ export default function Pricing() {
             Pricing
           </Typography>
           <Typography variant="body1" color="text.secondary">
-            Quickly build an effective pricing table for your potential
-            customers with this layout. <br />
-            It&apos;s built with default Material UI components with little
-            customization.
+            These distinct packages are tailored to accommodate varying client
+            needs and financial considerations, offering increasing levels of
+            analysis and insights to support their business objectives.
           </Typography>
         </Box>
         <Grid container spacing={3} alignItems="center" justifyContent="center">
@@ -107,11 +107,15 @@ export default function Pricing() {
                   flexDirection: "column",
                   gap: 4,
                   border:
-                    tier.title === "Professional" ? "1px solid" : undefined,
+                    tier.title === "Growth Accelerator"
+                      ? "1px solid"
+                      : undefined,
                   borderColor:
-                    tier.title === "Professional" ? "primary.main" : undefined,
+                    tier.title === "Growth Accelerator"
+                      ? "primary.main"
+                      : undefined,
                   background:
-                    tier.title === "Professional"
+                    tier.title === "Growth Accelerator"
                       ? "linear-gradient(#033363, #021F3B)"
                       : undefined,
                 }}
@@ -123,13 +127,14 @@ export default function Pricing() {
                       display: "flex",
                       justifyContent: "space-between",
                       alignItems: "center",
-                      color: tier.title === "Professional" ? "grey.100" : "",
+                      color:
+                        tier.title === "Growth Accelerator" ? "grey.100" : "",
                     }}
                   >
-                    <Typography component="h3" variant="h6">
+                    <Typography component="h3" variant="h3">
                       {tier.title}
                     </Typography>
-                    {tier.title === "Professional" && (
+                    {tier.title === "Growth Accelerator" && (
                       <Chip
                         icon={<AutoAwesomeIcon />}
                         label={tier.subheader}
@@ -147,21 +152,6 @@ export default function Pricing() {
                         }}
                       />
                     )}
-                  </Box>
-                  <Box
-                    sx={{
-                      display: "flex",
-                      alignItems: "baseline",
-                      color:
-                        tier.title === "Professional" ? "grey.50" : undefined,
-                    }}
-                  >
-                    <Typography component="h3" variant="h2">
-                      ${tier.price}
-                    </Typography>
-                    <Typography component="h3" variant="h6">
-                      &nbsp; per month
-                    </Typography>
                   </Box>
                   <Divider
                     sx={{
@@ -184,7 +174,7 @@ export default function Pricing() {
                         sx={{
                           width: 20,
                           color:
-                            tier.title === "Professional"
+                            tier.title === "Growth Accelerator"
                               ? "primary.light"
                               : "primary.main",
                         }}
@@ -194,7 +184,7 @@ export default function Pricing() {
                         variant="subtitle2"
                         sx={{
                           color:
-                            tier.title === "Professional"
+                            tier.title === "Growth Accelerator"
                               ? "grey.200"
                               : undefined,
                         }}

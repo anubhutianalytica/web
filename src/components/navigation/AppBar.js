@@ -100,10 +100,6 @@ function NavBar({ mode, toggleColorMode }) {
                   onClick={() => scrollToSection("features")}
                 />
                 <NavBarMenuItem
-                  text={"Testimonials"}
-                  onClick={() => scrollToSection("testimonials")}
-                />
-                <NavBarMenuItem
                   text={"Highlights"}
                   onClick={() => scrollToSection("highlights")}
                 />
@@ -152,9 +148,6 @@ function NavBar({ mode, toggleColorMode }) {
                   ></Box>
                   <MenuItem onClick={() => scrollToSection("features")}>
                     Features
-                  </MenuItem>
-                  <MenuItem onClick={() => scrollToSection("testimonials")}>
-                    Testimonials
                   </MenuItem>
                   <MenuItem onClick={() => scrollToSection("highlights")}>
                     Highlights

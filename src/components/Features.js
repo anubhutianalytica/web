@@ -16,18 +16,18 @@ import ViewQuiltRoundedIcon from "@mui/icons-material/ViewQuiltRounded";
 const items = [
   {
     icon: <ViewQuiltRoundedIcon />,
-    title: "Dashboard",
+    title: "Unique Consulting Report",
     description:
-      "This item could provide a snapshot of the most important metrics or data points related to the product.",
+      "Our highly experienced analytics team provides in-depth data analysis and actionable insights tailored to your business needs. These reports provide a deep dive into your data, offering valuable strategies for growth and optimization.",
     imageLight:
       'url("/static/images/templates/templates-images/dash-light.png")',
     imageDark: 'url("/static/images/templates/templates-images/dash-dark.png")',
   },
   {
     icon: <EdgesensorHighRoundedIcon />,
-    title: "Mobile integration",
+    title: "Real-time Dashboards",
     description:
-      "This item could provide information about the mobile app version of the product.",
+      "Stay on top of your analytics metrics with our dynamic real-time dashboards. Track key performance indicators and make informed decisions instantly, ensuring you always have a pulse on your business's performance.",
     imageLight:
       'url("/static/images/templates/templates-images/mobile-light.png")',
     imageDark:
@@ -35,14 +35,14 @@ const items = [
   },
   {
     icon: <DevicesRoundedIcon />,
-    title: "Available on all platforms",
+    title: "Full Customization",
     description:
-      "This item could let users know the product is available on all platforms, such as web, mobile, and desktop.",
+      "We understand that every business is unique. That's why we offer fully customizable solutions to meet your specific requirements. With our commitment to fast turnaround times, you'll receive timely insights and strategies to drive your business forward.",
     imageLight:
       'url("/static/images/templates/templates-images/devices-light.png")',
     imageDark:
       'url("/static/images/templates/templates-images/devices-dark.png")',
-  },
+  }
 ];
 
 export default function Features() {
@@ -58,8 +58,8 @@ export default function Features() {
     <Box
       id="features"
       sx={{
-        pt: { xs: 4, sm: 12 },
-        pb: { xs: 8, sm: 16 },
+        pt: { xs: 4, sm: 2 },
+        pb: { xs: 8, sm: 2 },
         color: "white",
       }}
     >
@@ -70,21 +70,25 @@ export default function Features() {
               <Typography component="h2" variant="h4" color="text.primary">
                 Product features
               </Typography>
-              <Typography
+              {/* <Typography
                 variant="body1"
                 color="text.secondary"
                 sx={{ mb: { xs: 2, sm: 4 } }}
               >
-                Here you can provide a brief overview of the key features of the
-                product. For example, you could list the number of features, the
-                types of features, add-ons, or the benefits of the features.
-              </Typography>
+                We help our clients drive business success through comprehensive
+                business intelligence services, encompassing performance
+                evaluation, forecasting, customer segmentation and marketing
+                analytics. Our capabilities provide businesses with the tools
+                and insights they need to optimize their operations, improve
+                decision-making, and drive sustainable profitability in an
+                increasingly competitive business environment.
+              </Typography> */}
             </div>
             <Grid
               container
               item
               gap={1}
-              sx={{ display: { xs: "auto", sm: "none" } }}
+              sx={{ display: { xs: "auto", sm: "none" }, pb: { xs: 2, sm: 2 } }}
             >
               {items.map(({ title }, index) => (
                 <Chip
