@@ -96,15 +96,15 @@ function NavBar({ mode, toggleColorMode }) {
               </Box>
               <Box sx={{ display: { xs: "none", md: "flex" } }}>
                 <NavBarMenuItem
-                  text={"Features"}
+                  text={"Capabilities"}
                   onClick={() => scrollToSection("features")}
                 />
                 <NavBarMenuItem
-                  text={"Highlights"}
+                  text={"How We Help"}
                   onClick={() => scrollToSection("highlights")}
                 />
                 <NavBarMenuItem
-                  text={"Pricing"}
+                  text={"Packages"}
                   onClick={() => scrollToSection("pricing")}
                 />
                 <NavBarMenuItem
@@ -147,13 +147,13 @@ function NavBar({ mode, toggleColorMode }) {
                     }}
                   ></Box>
                   <MenuItem onClick={() => scrollToSection("features")}>
-                    Features
+                    Capabilities
                   </MenuItem>
                   <MenuItem onClick={() => scrollToSection("highlights")}>
-                    Highlights
+                    How We Help
                   </MenuItem>
                   <MenuItem onClick={() => scrollToSection("pricing")}>
-                    Pricing
+                    Packages
                   </MenuItem>
                   <MenuItem onClick={() => scrollToSection("faq")}>
                     FAQ

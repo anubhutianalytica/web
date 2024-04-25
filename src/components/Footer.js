@@ -12,7 +12,10 @@ import blackLogo from "../assets/logos/Logo_NoBG.png";
 import FacebookIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import TwitterIcon from "@mui/icons-material/X";
-import { useTheme } from '@mui/system';
+import { useTheme } from "@mui/system";
+import EmailIcon from "@mui/icons-material/Email";
+import CallIcon from "@mui/icons-material/Call";
+import Tooltip from '@mui/material/Tooltip';
 
 const logoStyle = {
   width: "140px",
@@ -33,7 +36,7 @@ function Copyright() {
 
 export default function Footer() {
   const theme = useTheme();
-  const logo = theme.palette.mode === 'light' ? blackLogo : whiteLogo;
+  const logo = theme.palette.mode === "light" ? blackLogo : whiteLogo;
   return (
     <Box
       sx={{
@@ -52,7 +55,7 @@ export default function Footer() {
           textAlign: { sm: "center", md: "left" },
         }}
       >
-        <Box
+        {/* <Box
           sx={{
             display: "flex",
             flexDirection: { xs: "column", sm: "row" },
@@ -172,19 +175,19 @@ export default function Footer() {
               Contact
             </Link>
           </Box>
-        </Box>
+        </Box> */}
         <Box
           sx={{
             display: "flex",
             justifyContent: "space-between",
-            pt: { xs: 4, sm: 8 },
+            pt: { xs: 2, sm: 2 },
             width: "100%",
-            borderTop: "1px solid",
-            borderColor: "divider",
+            // borderTop: "1px solid",
+            // borderColor: "divider",
           }}
         >
           <div>
-            <Link color="text.secondary" href="#">
+            {/* <Link color="text.secondary" href="#">
               Privacy Policy
             </Link>
             <Typography display="inline" sx={{ mx: 0.5, opacity: 0.5 }}>
@@ -192,7 +195,7 @@ export default function Footer() {
             </Typography>
             <Link color="text.secondary" href="#">
               Terms of Service
-            </Link>
+            </Link> */}
             <Copyright />
           </div>
           <Stack
@@ -204,7 +207,7 @@ export default function Footer() {
               color: "text.secondary",
             }}
           >
-            <IconButton
+            {/* <IconButton
               color="inherit"
               href="#"
               aria-label="GitHub"
@@ -219,15 +222,33 @@ export default function Footer() {
               sx={{ alignSelf: "center" }}
             >
               <TwitterIcon />
-            </IconButton>
+            </IconButton> */}
             <IconButton
               color="inherit"
-              href="#"
+              href="https://www.linkedin.com/in/anubhutianalytics/"
               aria-label="LinkedIn"
               sx={{ alignSelf: "center" }}
             >
               <LinkedInIcon />
             </IconButton>
+            <IconButton
+              color="inherit"
+              href="mailto:contact@anubhutianalytics.com"
+              aria-label="mail"
+              sx={{ alignSelf: "center" }}
+            >
+              <EmailIcon />
+            </IconButton>
+            <Tooltip title="+91 9205966702">
+              <IconButton
+                color="inherit"
+                href="tel:+91 9205966702"
+                aria-label="call"
+                sx={{ alignSelf: "center" }}
+              >
+                <CallIcon />
+              </IconButton>
+            </Tooltip>
           </Stack>
         </Box>
       </Container>

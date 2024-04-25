@@ -1,4 +1,7 @@
-import * as React from "react";
+import ChevronRightRoundedIcon from "@mui/icons-material/ChevronRightRounded";
+import DevicesRoundedIcon from "@mui/icons-material/DevicesRounded";
+import EdgesensorHighRoundedIcon from "@mui/icons-material/EdgesensorHighRounded";
+import ViewQuiltRoundedIcon from "@mui/icons-material/ViewQuiltRounded";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
@@ -8,40 +11,40 @@ import Grid from "@mui/material/Grid";
 import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-import ChevronRightRoundedIcon from "@mui/icons-material/ChevronRightRounded";
-import DevicesRoundedIcon from "@mui/icons-material/DevicesRounded";
-import EdgesensorHighRoundedIcon from "@mui/icons-material/EdgesensorHighRounded";
-import ViewQuiltRoundedIcon from "@mui/icons-material/ViewQuiltRounded";
+import * as React from "react";
 
 const items = [
   {
     icon: <ViewQuiltRoundedIcon />,
-    title: "Unique Consulting Report",
+    title: "Performance Evaluation",
     description:
-      "Our highly experienced analytics team provides in-depth data analysis and actionable insights tailored to your business needs. These reports provide a deep dive into your data, offering valuable strategies for growth and optimization.",
-    imageLight:
-      'url("/static/images/templates/templates-images/dash-light.png")',
-    imageDark: 'url("/static/images/templates/templates-images/dash-dark.png")',
+      "Our clients gain insights into their operations, allowing them to streamline processes, reduce costs, and ultimately increase profitability. They can identify areas of improvement, optimize resource allocation, and make informed decisions based on data.",
+    imageLight: 'url("/images/consulting.jpg")',
+    imageDark: 'url("/images/consulting.jpg")',
   },
   {
     icon: <EdgesensorHighRoundedIcon />,
-    title: "Real-time Dashboards",
+    title: "Forecasting",
     description:
-      "Stay on top of your analytics metrics with our dynamic real-time dashboards. Track key performance indicators and make informed decisions instantly, ensuring you always have a pulse on your business's performance.",
-    imageLight:
-      'url("/static/images/templates/templates-images/mobile-light.png")',
-    imageDark:
-      'url("/static/images/templates/templates-images/mobile-dark.png")',
+      "Our clients can anticipate market trends and demand fluctuations, enabling them to plan inventory, production, and marketing strategies more effectively. This helps our clients stay ahead of the curve, minimize risks, and capitalize on opportunities, ultimately improving their bottom line.",
+    imageLight: 'url("/images/dashboard.png")',
+    imageDark: 'url("/images/dashboard.png")',
   },
   {
     icon: <DevicesRoundedIcon />,
-    title: "Full Customization",
+    title: "Marketing Analytics",
     description:
-      "We understand that every business is unique. That's why we offer fully customizable solutions to meet your specific requirements. With our commitment to fast turnaround times, you'll receive timely insights and strategies to drive your business forward.",
-    imageLight:
-      'url("/static/images/templates/templates-images/devices-light.png")',
-    imageDark:
-      'url("/static/images/templates/templates-images/devices-dark.png")',
+      "By understanding customer behavior and preferences, our clients can tailor their marketing efforts to target the right audience with the right message at the right time. This leads to higher conversion rates, increased customer engagement, and improved return on marketing investment.",
+    imageLight: 'url("/images/customization.png")',
+    imageDark: 'url("/images/customization.png")',
+  },
+  {
+    icon: <DevicesRoundedIcon />,
+    title: "Customer Segmentation",
+    description:
+      "Our clients can identify their most valuable customer segments and tailor their products, services, and marketing strategies to meet their specific needs. This enhances customer satisfaction, loyalty, and retention, leading to long-term profitability and sustainable growth.",
+    imageLight: 'url("/images/segmentation.png")',
+    imageDark: 'url("/images/segmentation.png")',
   }
 ];
 
@@ -68,7 +71,7 @@ export default function Features() {
           <Grid item xs={12} md={6}>
             <div>
               <Typography component="h2" variant="h4" color="text.primary">
-                Product features
+                Our Capabilities
               </Typography>
               {/* <Typography
                 variant="body1"
@@ -134,7 +137,8 @@ export default function Features() {
                       ? items[selectedItemIndex].imageLight
                       : items[selectedItemIndex].imageDark,
                   backgroundSize: "cover",
-                  backgroundPosition: "center",
+                  backgroundPosition: "center center",
+                  backgroundRepeat: "no-repeat",
                   minHeight: 280,
                 }}
               />
@@ -292,9 +296,11 @@ export default function Features() {
               <Box
                 sx={{
                   m: "auto",
-                  width: 420,
+                  width: 4200,
                   height: 500,
-                  backgroundSize: "contain",
+                  backgroundSize: "cover",
+                  backgroundPosition: "center center",
+                  backgroundRepeat: "no-repeat",
                   backgroundImage: (theme) =>
                     theme.palette.mode === "light"
                       ? items[selectedItemIndex].imageLight

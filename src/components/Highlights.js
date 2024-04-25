@@ -78,11 +78,11 @@ export default function Highlights() {
           }}
         >
           <Typography component="h2" variant="h4">
-            Highlights
+            How do we help you?
           </Typography>
           <Typography variant="body1" sx={{ color: 'grey.400' }}>
-            Explore why our product stands out: adaptability, durability,
-            user-friendly design, and innovation. Enjoy reliable customer support and
+            Explore why we stand out: adaptability, durability,
+            and innovation. Enjoy reliable customer support and
             precision in every detail.
           </Typography>
         </Box>

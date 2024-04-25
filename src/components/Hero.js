@@ -24,12 +24,23 @@ export default function Hero() {
         sx={{
           display: "flex",
           flexDirection: "column",
-          alignItems: "center",
+          alignItems: "flex-start", // Align items vertically to the left
           pt: { xs: 14, sm: 20 },
           pb: { xs: 8, sm: 12 },
         }}
+        className="container"
       >
-        <Stack spacing={2} useFlexGap sx={{ width: { xs: "100%", sm: "70%" } }}>
+        <Stack
+          spacing={2}
+          useFlexGap
+          sx={{
+            width: { xs: "100%", sm: "100%" },
+            flexDirection: { xs: "column", sm: "row" }, // Column on small screens, row on larger screens
+            justifyContent: { xs: "flex-start", sm: "space-between" }, // Align items to the left on small screens, space-between on larger screens
+            alignItems: "flex-start",
+          }}
+          className="about-us-stack"
+        >
           <Typography
             variant="h1"
             sx={{
@@ -54,32 +65,36 @@ export default function Hero() {
             >
               Impactful Services
             </Typography>
+            {/* <Stack
+              direction={{ xs: "column", sm: "row" }}
+              alignSelf="center"
+              spacing={1}
+              useFlexGap
+              sx={{ pt: 2, width: { xs: "100%", sm: "auto" } }}
+            >
+              <Button variant="contained" color="primary">
+                Start Today
+              </Button>
+            </Stack> */}
           </Typography>
           <Typography
-            textAlign="center"
+            textAlign={{ xs: "center", sm: "end" }}
             color="text.secondary"
             variant="h6"
-            sx={{ alignSelf: "center", width: { sm: "100%", md: "80%" } }}
+            sx={{
+              alignSelf: "center",
+              width: { sm: "100%", md: "50%" },
+              pt: 0,
+            }}
           >
             We help our clients drive business success through comprehensive
             business intelligence services, encompassing performance evaluation,
-            forecasting, customer segmentation and marketing analytics. Our
-            capabilities provide businesses with the tools and insights they
-            need to optimize their operations, improve decision-making, and
-            drive sustainable profitability in an increasingly competitive
-            business environment.
+            forecasting, customer segmentation and marketing analytics.
+            <br /> <br /> Our capabilities provide businesses with the tools and
+            insights they need to optimize their operations, improve
+            decision-making, and drive sustainable profitability in an
+            increasingly competitive business environment.
           </Typography>
-          <Stack
-            direction={{ xs: "column", sm: "row" }}
-            alignSelf="center"
-            spacing={1}
-            useFlexGap
-            sx={{ pt: 2, width: { xs: "100%", sm: "auto" } }}
-          >
-            <Button variant="contained" color="primary">
-              Start Today
-            </Button>
-          </Stack>
         </Stack>
         {/* <Box
           id="image"

@@ -22,7 +22,7 @@ const tiers = [
       "Marketing Analytics",
       "Detailed Consulting Reports",
     ],
-    buttonText: "Start now",
+    buttonText: "Contact Us",
     buttonVariant: "outlined",
   },
   {
@@ -36,7 +36,7 @@ const tiers = [
       "Marketing Analytics",
       "Detailed Consulting Reports",
     ],
-    buttonText: "Start now",
+    buttonText: "Contact Us",
     buttonVariant: "outlined",
   },
   {
@@ -50,7 +50,7 @@ const tiers = [
       "Marketing Analytics",
       "Detailed Consulting Reports",
     ],
-    buttonText: "Start now",
+    buttonText: "Contact Us",
     buttonVariant: "contained",
   },
 ];
@@ -83,7 +83,7 @@ export default function Pricing() {
           }}
         >
           <Typography component="h2" variant="h4" color="text.primary">
-            Pricing
+            Packages
           </Typography>
           <Typography variant="body1" color="text.secondary">
             These distinct packages are tailored to accommodate varying client
@@ -199,7 +199,7 @@ export default function Pricing() {
                     fullWidth
                     variant={tier.buttonVariant}
                     component="a"
-                    href="/material-ui/getting-started/templates/checkout/"
+                    href="mailto:contact@anubhutianalytics.com"
                     target="_blank"
                   >
                     {tier.buttonText}
