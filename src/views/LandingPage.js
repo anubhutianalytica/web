@@ -36,6 +36,8 @@ export default function LandingPage() {
         {/* <Divider /> */}
         <Highlights />
         <Divider />
+        <LogoCollection />
+        <Divider />
         <Pricing />
         <Divider />
         <FAQ />

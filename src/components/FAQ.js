@@ -45,7 +45,7 @@ export default function FAQ() {
             textAlign: { sm: "left", md: "center" },
           }}
         >
-          Frequently asked questions
+          Why Us?
         </Typography>
         <Box sx={{ width: "100%" }}>
           <Accordion
@@ -58,7 +58,7 @@ export default function FAQ() {
               id="panel1d-header"
             >
               <Typography component="h3" variant="subtitle2">
-                What do I get with Performance Evaluation?
+                Unique Consulting Report
               </Typography>
             </AccordionSummary>
             <AccordionDetails>
@@ -67,10 +67,10 @@ export default function FAQ() {
                 gutterBottom
                 sx={{ maxWidth: { sm: "100%", md: "70%" } }}
               >
-                Our clients gain insights into their operations, allowing them
-                to streamline processes, reduce costs, and ultimately increase
-                profitability. They can identify areas of improvement, optimize
-                resource allocation, and make informed decisions based on data.
+                Our highly experienced analytics team provides in-depth data
+                analysis and actionable insights tailored to your business
+                needs. These reports provide a deep dive into your data,
+                offering valuable strategies for growth and optimization.
               </Typography>
             </AccordionDetails>
           </Accordion>
@@ -84,7 +84,7 @@ export default function FAQ() {
               id="panel2d-header"
             >
               <Typography component="h3" variant="subtitle2">
-                What do you mean by Forecasting?
+                Real-time Dashboards
               </Typography>
             </AccordionSummary>
             <AccordionDetails>
@@ -93,11 +93,10 @@ export default function FAQ() {
                 gutterBottom
                 sx={{ maxWidth: { sm: "100%", md: "70%" } }}
               >
-                Our clients can anticipate market trends and demand
-                fluctuations, enabling them to plan inventory, production, and
-                marketing strategies more effectively. This helps our clients
-                stay ahead of the curve, minimize risks, and capitalize on
-                opportunities, ultimately improving their bottom line.
+                Stay on top of your analytics metrics with our dynamic real-time
+                dashboards. Track key performance indicators and make informed
+                decisions instantly, ensuring you always have a pulse on your
+                business's performance.
               </Typography>
             </AccordionDetails>
           </Accordion>
@@ -111,7 +110,7 @@ export default function FAQ() {
               id="panel3d-header"
             >
               <Typography component="h3" variant="subtitle2">
-                How do you do your Market Analytics?
+                Full Customization
               </Typography>
             </AccordionSummary>
             <AccordionDetails>
@@ -120,38 +119,10 @@ export default function FAQ() {
                 gutterBottom
                 sx={{ maxWidth: { sm: "100%", md: "70%" } }}
               >
-                By understanding customer behavior and preferences, our clients
-                can tailor their marketing efforts to target the right audience
-                with the right message at the right time. This leads to higher
-                conversion rates, increased customer engagement, and improved
-                return on marketing investment.
-              </Typography>
-            </AccordionDetails>
-          </Accordion>
-          <Accordion
-            expanded={expanded === "panel4"}
-            onChange={handleChange("panel4")}
-          >
-            <AccordionSummary
-              expandIcon={<ExpandMoreIcon />}
-              aria-controls="panel4d-content"
-              id="panel4d-header"
-            >
-              <Typography component="h3" variant="subtitle2">
-                How is Customer Segmentation useful to me?
-              </Typography>
-            </AccordionSummary>
-            <AccordionDetails>
-              <Typography
-                variant="body2"
-                gutterBottom
-                sx={{ maxWidth: { sm: "100%", md: "70%" } }}
-              >
-                Our clients can identify their most valuable customer segments
-                and tailor their products, services, and marketing strategies to
-                meet their specific needs. This enhances customer satisfaction,
-                loyalty, and retention, leading to long-term profitability and
-                sustainable growth.
+                We understand that every business is unique. That's why we offer
+                fully customizable solutions to meet your specific requirements.
+                With our commitment to fast turnaround times, you'll receive
+                timely insights and strategies to drive your business forward .
               </Typography>
             </AccordionDetails>
           </Accordion>

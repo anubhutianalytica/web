@@ -108,7 +108,7 @@ function NavBar({ mode, toggleColorMode }) {
                   onClick={() => scrollToSection("pricing")}
                 />
                 <NavBarMenuItem
-                  text={"FAQ"}
+                  text={"Why Us?"}
                   onClick={() => scrollToSection("faq")}
                 />
                 <MenuItem sx={{ py: "6px", px: "12px" }}>
@@ -156,7 +156,7 @@ function NavBar({ mode, toggleColorMode }) {
                     Packages
                   </MenuItem>
                   <MenuItem onClick={() => scrollToSection("faq")}>
-                    FAQ
+                    Why Us?
                   </MenuItem>
                   <MenuItem>
                     <ToggleColorMode
