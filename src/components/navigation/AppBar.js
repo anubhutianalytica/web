@@ -104,7 +104,7 @@ function NavBar({ mode, toggleColorMode }) {
                   onClick={() => scrollToSection("highlights")}
                 />
                 <NavBarMenuItem
-                  text={"Packages"}
+                  text={"Services"}
                   onClick={() => scrollToSection("pricing")}
                 />
                 <NavBarMenuItem
@@ -153,7 +153,7 @@ function NavBar({ mode, toggleColorMode }) {
                     How We Help
                   </MenuItem>
                   <MenuItem onClick={() => scrollToSection("pricing")}>
-                    Packages
+                    Services
                   </MenuItem>
                   <MenuItem onClick={() => scrollToSection("faq")}>
                     Why Us?
@@ -170,7 +170,7 @@ function NavBar({ mode, toggleColorMode }) {
                       color="primary"
                       variant="contained"
                       component="a"
-                      href="/material-ui/getting-started/templates/sign-up/"
+                      href="tel:+91 9205966702"
                       target="_blank"
                       sx={{ width: "100%" }}
                     >

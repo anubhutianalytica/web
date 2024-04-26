@@ -22,7 +22,7 @@ const logoStyle = {
   width: '100px',
   height: '80px',
   margin: '0 32px',
-  opacity: 0.7,
+  opacity: 0.9,
 };
 
 export default function LogoCollection() {

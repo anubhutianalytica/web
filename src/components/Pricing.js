@@ -83,7 +83,7 @@ export default function Pricing() {
           }}
         >
           <Typography component="h2" variant="h4" color="text.primary">
-            Packages
+            Services We Offer
           </Typography>
           <Typography variant="body1" color="text.secondary">
             These distinct packages are tailored to accommodate varying client

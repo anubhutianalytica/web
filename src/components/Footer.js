@@ -1,30 +1,38 @@
-import * as React from "react";
+import CallIcon from "@mui/icons-material/Call";
+import EmailIcon from "@mui/icons-material/Email";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import IconButton from "@mui/material/IconButton";
 import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
-import TextField from "@mui/material/TextField";
+import Tooltip from "@mui/material/Tooltip";
 import Typography from "@mui/material/Typography";
-import whiteLogo from "../assets/logos/Logo_white_NoBG.png";
-import blackLogo from "../assets/logos/Logo_NoBG.png";
-import FacebookIcon from "@mui/icons-material/GitHub";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import TwitterIcon from "@mui/icons-material/X";
 import { useTheme } from "@mui/system";
-import EmailIcon from "@mui/icons-material/Email";
-import CallIcon from "@mui/icons-material/Call";
-import Tooltip from '@mui/material/Tooltip';
+import * as React from "react";
+import blackLogo from "../assets/logos/Logo_NoBG.png";
+import whiteLogo from "../assets/logos/Logo_white_NoBG.png";
+import Snackbar from "@mui/material/Snackbar";
+import Button from "@mui/material/Button";
+import CloseIcon from "@mui/icons-material/Close";
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
+import DialogTitle from "@mui/material/DialogTitle";
+import Slide from "@mui/material/Slide";
 
 const logoStyle = {
-  width: "140px",
+  width: "200px",
   height: "auto",
 };
+const Transition = React.forwardRef(function Transition(props, ref) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
 
 function Copyright() {
   return (
-    <Typography variant="body2" color="text.secondary" mt={1}>
+    <Typography variant="body2" color="text.secondary" mt={3}>
       {"Copyright © "}
       <Link href="https://anubhutianalytics.com/">
         Anubhuti Analytics&nbsp;
@@ -34,14 +42,60 @@ function Copyright() {
   );
 }
 
+
+
 export default function Footer() {
   const theme = useTheme();
   const logo = theme.palette.mode === "light" ? blackLogo : whiteLogo;
+  const iconStyle = { fontSize: 40 };
+
+  const [state, setState] = React.useState({
+    open: false,
+    text: "",
+    icon: "",
+  });
+  const { text, icon, open } = state;
+
+  const handleCopy = (textToCopy) => {
+    navigator.clipboard
+      .writeText(textToCopy)
+      .then(() => {
+        setState({ ...state, open: true });
+      })
+      .catch((error) => {
+        console.error("Failed to copy:", error);
+      });
+  };
+  const handleClick = (newState) => () => {
+    // handleClose();
+    setState({ ...newState, open: true });
+  };
+
+  const handleClose = () => {
+    // handleCopy({text});
+    setState({ ...state, open: false });
+  };
+
+  const action = (
+    <React.Fragment>
+      <Button color="secondary" size="small" onClick={handleClose}>
+        Hey
+      </Button>
+      <IconButton
+        size="small"
+        aria-label="close"
+        color="inherit"
+        onClick={handleClose}
+      >
+        <CloseIcon fontSize="small" />
+      </IconButton>
+    </React.Fragment>
+  );
   return (
     <Box
       sx={{
-        pt: { xs: 4, sm: 12 },
-        pb: { xs: 8, sm: 16 },
+        pt: { xs: 2, sm: 4 },
+        pb: { xs: 2, sm: 4 },
         color: "white",
       }}
     >
@@ -51,17 +105,18 @@ export default function Footer() {
           flexDirection: "column",
           alignItems: "center",
           gap: { xs: 4, sm: 8 },
-          py: { xs: 8, sm: 10 },
+          py: { xs: 2, sm: 2 },
           textAlign: { sm: "center", md: "left" },
         }}
       >
-        {/* <Box
+        <Box
           sx={{
             display: "flex",
             flexDirection: { xs: "column", sm: "row" },
             width: "100%",
             justifyContent: "space-between",
           }}
+          className="container"
         >
           <Box
             sx={{
@@ -72,132 +127,37 @@ export default function Footer() {
             }}
           >
             <Box sx={{ width: { xs: "100%", sm: "60%" } }}>
-              <Box sx={{ ml: "-15px" }}>
+              <Box>
                 <img
                   src={logo}
                   style={logoStyle}
                   alt="Logo of Anubhuti Analytics"
                 />
               </Box>
-              <Typography variant="body2" fontWeight={600} gutterBottom>
-                Newsletter
-              </Typography>
-              <Typography variant="body2" color="text.secondary" mb={2}>
-                Subscribe to our newsletter for weekly updates and promotions.
-              </Typography>
-              <Stack direction="row" spacing={1} useFlexGap>
-                <TextField
-                  id="outlined-basic"
-                  hiddenLabel
-                  size="small"
-                  variant="outlined"
-                  fullWidth
-                  aria-label="Enter your email address"
-                  placeholder="Your email address"
-                  inputProps={{
-                    autoComplete: "off",
-                    ariaLabel: "Enter your email address",
-                  }}
-                />
-                <Button
-                  variant="contained"
-                  color="primary"
-                  sx={{ flexShrink: 0 }}
-                >
-                  Subscribe
-                </Button>
-              </Stack>
             </Box>
           </Box>
-          <Box
+          <Typography
+            component="h2"
+            variant="h4"
+            color="text.primary"
             sx={{
-              display: { xs: "none", sm: "flex" },
-              flexDirection: "column",
-              gap: 1,
+              width: { sm: "40%", md: "60%" },
+              textAlign: { sm: "right", md: "right" },
+              pr: 3,
+              mt: 3,
             }}
           >
-            <Typography variant="body2" fontWeight={600}>
-              Product
-            </Typography>
-            <Link color="text.secondary" href="#">
-              Features
-            </Link>
-            <Link color="text.secondary" href="#">
-              Testimonials
-            </Link>
-            <Link color="text.secondary" href="#">
-              Highlights
-            </Link>
-            <Link color="text.secondary" href="#">
-              Pricing
-            </Link>
-            <Link color="text.secondary" href="#">
-              FAQs
-            </Link>
-          </Box>
-          <Box
-            sx={{
-              display: { xs: "none", sm: "flex" },
-              flexDirection: "column",
-              gap: 1,
-            }}
-          >
-            <Typography variant="body2" fontWeight={600}>
-              Company
-            </Typography>
-            <Link color="text.secondary" href="#">
-              About us
-            </Link>
-            <Link color="text.secondary" href="#">
-              Careers
-            </Link>
-            <Link color="text.secondary" href="#">
-              Press
-            </Link>
-          </Box>
-          <Box
-            sx={{
-              display: { xs: "none", sm: "flex" },
-              flexDirection: "column",
-              gap: 1,
-            }}
-          >
-            <Typography variant="body2" fontWeight={600}>
-              Legal
-            </Typography>
-            <Link color="text.secondary" href="#">
-              Terms
-            </Link>
-            <Link color="text.secondary" href="#">
-              Privacy
-            </Link>
-            <Link color="text.secondary" href="#">
-              Contact
-            </Link>
-          </Box>
-        </Box> */}
+            Contact Us
+          </Typography>
+        </Box>
         <Box
           sx={{
             display: "flex",
             justifyContent: "space-between",
-            pt: { xs: 2, sm: 2 },
             width: "100%",
-            // borderTop: "1px solid",
-            // borderColor: "divider",
           }}
         >
-          <div>
-            {/* <Link color="text.secondary" href="#">
-              Privacy Policy
-            </Link>
-            <Typography display="inline" sx={{ mx: 0.5, opacity: 0.5 }}>
-              &nbsp;•&nbsp;
-            </Typography>
-            <Link color="text.secondary" href="#">
-              Terms of Service
-            </Link> */}
-            <Copyright />
-          </div>
+          <Copyright />
           <Stack
             direction="row"
             justifyContent="left"
@@ -207,51 +167,76 @@ export default function Footer() {
               color: "text.secondary",
             }}
           >
-            {/* <IconButton
-              color="inherit"
-              href="#"
-              aria-label="GitHub"
-              sx={{ alignSelf: "center" }}
-            >
-              <FacebookIcon />
-            </IconButton>
-            <IconButton
-              color="inherit"
-              href="#"
-              aria-label="X"
-              sx={{ alignSelf: "center" }}
-            >
-              <TwitterIcon />
-            </IconButton> */}
             <IconButton
               color="inherit"
               href="https://www.linkedin.com/in/anubhutianalytics/"
               aria-label="LinkedIn"
-              sx={{ alignSelf: "center" }}
+              sx={{ alignSelf: "center", p: 2, mb: 5 }}
             >
-              <LinkedInIcon />
+              <LinkedInIcon sx={iconStyle} />
             </IconButton>
-            <IconButton
-              color="inherit"
-              href="mailto:contact@anubhutianalytics.com"
-              aria-label="mail"
-              sx={{ alignSelf: "center" }}
-            >
-              <EmailIcon />
-            </IconButton>
-            <Tooltip title="+91 9205966702">
+            <Tooltip title="Copied: contact@anubhutianalytics.com">
               <IconButton
                 color="inherit"
-                href="tel:+91 9205966702"
-                aria-label="call"
-                sx={{ alignSelf: "center" }}
+                // href="mailto:contact@anubhutianalytics.com"
+                aria-label="mail"
+                onClick={handleClick({
+                  text: "contact@anubhutianalytics.com",
+                  icon: "Mail",
+                })}
+                sx={{ alignSelf: "center", p: 2, mb: 5 }}
               >
-                <CallIcon />
+                <EmailIcon sx={iconStyle} />
+              </IconButton>
+            </Tooltip>
+            <Tooltip title="Copied: +91 9205966702">
+              <IconButton
+                color="inherit"
+                // href="tel:+91 9205966702"
+                aria-label="call"
+                onClick={handleClick({ text: "+91 9205966702", icon: "Call" })}
+                sx={{ alignSelf: "center", p: 2, mb: 5 }}
+              >
+                <CallIcon sx={iconStyle} />
               </IconButton>
             </Tooltip>
           </Stack>
         </Box>
       </Container>
+      <Dialog
+        open={open}
+        TransitionComponent={Transition}
+        keepMounted
+        onClose={handleClose}
+        aria-describedby="alert-dialog-slide-description"
+      >
+        <DialogTitle>{text}</DialogTitle>
+        <DialogActions>
+          <Button onClick={() => handleCopy(text)}>Copy</Button>{" "}
+          {icon === 'Mail' && (
+            <Button
+              component={Link}
+              href={`mailto:${text}`}
+              target="_blank"
+              rel="noopener"
+              onClick={handleClose}
+            >
+              Email
+            </Button>
+          )}
+          {icon === 'Call' && (
+            <Button
+              component={Link}
+              href={`tel:${text}`}
+              target="_blank"
+              rel="noopener"
+              onClick={handleClose}
+            >
+              Call
+            </Button>
+          )}
+        </DialogActions>
+      </Dialog>
     </Box>
   );
 }
