@@ -23,8 +23,9 @@ import DialogTitle from "@mui/material/DialogTitle";
 import Slide from "@mui/material/Slide";
 
 const logoStyle = {
-  width: "200px",
+  width: "175px",
   height: "auto",
+  pt: "15px"
 };
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -41,8 +42,6 @@ function Copyright() {
     </Typography>
   );
 }
-
-
 
 export default function Footer() {
   const theme = useTheme();
@@ -112,21 +111,35 @@ export default function Footer() {
         <Box
           sx={{
             display: "flex",
-            flexDirection: { xs: "column", sm: "row" },
+            flexDirection: "row",
             width: "100%",
             justifyContent: "space-between",
           }}
           className="container"
         >
+          <Typography
+            component="h2"
+            variant="h4"
+            color="text.primary"
+            sx={{
+              width: { sm: "50%", md: "60%" },
+              textAlign: { sm: "left", md: "left" },
+              pr: 3,
+              mt: 3,
+            }}
+          >
+            Contact Us
+          </Typography>
           <Box
             sx={{
               display: "flex",
-              flexDirection: "column",
+              flexDirection: "row",
               gap: 4,
-              minWidth: { xs: "100%", sm: "60%" },
+              minWidth: { xs: "50%", sm: "60%" },
+              justifyContent: "end"
             }}
           >
-            <Box sx={{ width: { xs: "100%", sm: "60%" } }}>
+            <Box sx={{ width: { xs: "100%", sm: "60%" }, alignSelf: "end", textAlign: "right" }}>
               <Box>
                 <img
                   src={logo}
@@ -136,19 +149,6 @@ export default function Footer() {
               </Box>
             </Box>
           </Box>
-          <Typography
-            component="h2"
-            variant="h4"
-            color="text.primary"
-            sx={{
-              width: { sm: "40%", md: "60%" },
-              textAlign: { sm: "right", md: "right" },
-              pr: 3,
-              mt: 3,
-            }}
-          >
-            Contact Us
-          </Typography>
         </Box>
         <Box
           sx={{
@@ -213,7 +213,7 @@ export default function Footer() {
         <DialogTitle>{text}</DialogTitle>
         <DialogActions>
           <Button onClick={() => handleCopy(text)}>Copy</Button>{" "}
-          {icon === 'Mail' && (
+          {icon === "Mail" && (
             <Button
               component={Link}
               href={`mailto:${text}`}
@@ -224,7 +224,7 @@ export default function Footer() {
               Email
             </Button>
           )}
-          {icon === 'Call' && (
+          {icon === "Call" && (
             <Button
               component={Link}
               href={`tel:${text}`}
