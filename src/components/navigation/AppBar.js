@@ -11,7 +11,6 @@ import Drawer from "@mui/material/Drawer";
 import MenuItem from "@mui/material/MenuItem";
 import Toolbar from "@mui/material/Toolbar";
 import { useTheme } from "@mui/system";
-import ToggleColorMode from "../../actions/ToggleColorMode";
 import blackLogo from "../../assets/logos/Logo_NoBG.png";
 import whiteLogo from "../../assets/logos/Logo_white_NoBG.png";
 import NavBarMenuItem from "./AppBar.MenuItem";
@@ -111,12 +110,6 @@ function NavBar({ mode, toggleColorMode }) {
                   text={"Why Us?"}
                   onClick={() => scrollToSection("faq")}
                 />
-                <MenuItem sx={{ py: "6px", px: "12px" }}>
-                  <ToggleColorMode
-                    mode={mode}
-                    toggleColorMode={toggleColorMode}
-                  />
-                </MenuItem>
               </Box>
             </Box>
             <Box sx={{ display: { sm: "", md: "none" } }}>
@@ -157,12 +150,6 @@ function NavBar({ mode, toggleColorMode }) {
                   </MenuItem>
                   <MenuItem onClick={() => scrollToSection("faq")}>
                     Why Us?
-                  </MenuItem>
-                  <MenuItem>
-                    <ToggleColorMode
-                      mode={mode}
-                      toggleColorMode={toggleColorMode}
-                    />
                   </MenuItem>
                   <Divider />
                   <MenuItem>

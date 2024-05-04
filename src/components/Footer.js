@@ -2,9 +2,14 @@ import CallIcon from "@mui/icons-material/Call";
 import EmailIcon from "@mui/icons-material/Email";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogTitle from "@mui/material/DialogTitle";
 import IconButton from "@mui/material/IconButton";
 import Link from "@mui/material/Link";
+import Slide from "@mui/material/Slide";
 import Stack from "@mui/material/Stack";
 import Tooltip from "@mui/material/Tooltip";
 import Typography from "@mui/material/Typography";
@@ -12,20 +17,11 @@ import { useTheme } from "@mui/system";
 import * as React from "react";
 import blackLogo from "../assets/logos/Logo_NoBG.png";
 import whiteLogo from "../assets/logos/Logo_white_NoBG.png";
-import Snackbar from "@mui/material/Snackbar";
-import Button from "@mui/material/Button";
-import CloseIcon from "@mui/icons-material/Close";
-import Dialog from "@mui/material/Dialog";
-import DialogActions from "@mui/material/DialogActions";
-import DialogContent from "@mui/material/DialogContent";
-import DialogContentText from "@mui/material/DialogContentText";
-import DialogTitle from "@mui/material/DialogTitle";
-import Slide from "@mui/material/Slide";
 
 const logoStyle = {
   width: "175px",
   height: "auto",
-  pt: "15px"
+  pt: "15px",
 };
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -66,30 +62,14 @@ export default function Footer() {
       });
   };
   const handleClick = (newState) => () => {
-    // handleClose();
     setState({ ...newState, open: true });
   };
 
   const handleClose = () => {
-    // handleCopy({text});
     setState({ ...state, open: false });
   };
 
-  const action = (
-    <React.Fragment>
-      <Button color="secondary" size="small" onClick={handleClose}>
-        Hey
-      </Button>
-      <IconButton
-        size="small"
-        aria-label="close"
-        color="inherit"
-        onClick={handleClose}
-      >
-        <CloseIcon fontSize="small" />
-      </IconButton>
-    </React.Fragment>
-  );
+
   return (
     <Box
       sx={{
@@ -117,29 +97,69 @@ export default function Footer() {
           }}
           className="container"
         >
-          <Typography
-            component="h2"
-            variant="h4"
-            color="text.primary"
+          <Box
             sx={{
-              width: { sm: "50%", md: "60%" },
-              textAlign: { sm: "left", md: "left" },
-              pr: 3,
-              mt: 3,
+              display: "flex",
+              flexDirection: "column",
+              width: "100%",
+              justifyContent: "space-between",
             }}
+            className="container"
           >
-            Contact Us
-          </Typography>
+            <Typography
+              component="h2"
+              variant="h4"
+              color="text.primary"
+              sx={{
+                width: { sm: "50%", md: "60%" },
+                textAlign: { sm: "left", md: "left" },
+                pr: 3,
+                mt: 3,
+              }}
+            >
+              Contact Us
+            </Typography>
+            <Typography
+              component="h5"
+              // variant="h4"
+              color="text.primary"
+              sx={{
+                width: { sm: "50%", md: "60%" },
+                textAlign: { sm: "left", md: "left" },
+                pr: 3,
+              }}
+            >
+              +91 9205966702
+            </Typography>
+            <Typography
+              component="h5"
+              // variant="h4"
+              color="text.primary"
+              sx={{
+                width: { sm: "50%", md: "60%" },
+                textAlign: { sm: "left", md: "left" },
+                pr: 3,
+              }}
+            >
+              contact@anubhutianalytics.com
+            </Typography>
+          </Box>
           <Box
             sx={{
               display: "flex",
               flexDirection: "row",
               gap: 4,
               minWidth: { xs: "50%", sm: "60%" },
-              justifyContent: "end"
+              justifyContent: "end",
             }}
           >
-            <Box sx={{ width: { xs: "100%", sm: "60%" }, alignSelf: "end", textAlign: "right" }}>
+            <Box
+              sx={{
+                width: { xs: "100%", sm: "60%" },
+                alignSelf: "center",
+                textAlign: "right",
+              }}
+            >
               <Box>
                 <img
                   src={logo}
@@ -175,7 +195,7 @@ export default function Footer() {
             >
               <LinkedInIcon sx={iconStyle} />
             </IconButton>
-            <Tooltip title="Copied: contact@anubhutianalytics.com">
+            <Tooltip title="contact@anubhutianalytics.com">
               <IconButton
                 color="inherit"
                 // href="mailto:contact@anubhutianalytics.com"
@@ -189,7 +209,7 @@ export default function Footer() {
                 <EmailIcon sx={iconStyle} />
               </IconButton>
             </Tooltip>
-            <Tooltip title="Copied: +91 9205966702">
+            <Tooltip title="+91 9205966702">
               <IconButton
                 color="inherit"
                 // href="tel:+91 9205966702"

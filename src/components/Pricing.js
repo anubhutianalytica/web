@@ -86,7 +86,7 @@ export default function Pricing() {
             Services We Offer
           </Typography>
           <Typography variant="body1" color="text.secondary">
-            These distinct packages are tailored to accommodate varying client
+            These distinct services are tailored to accommodate varying client
             needs and financial considerations, offering increasing levels of
             analysis and insights to support their business objectives.
           </Typography>
