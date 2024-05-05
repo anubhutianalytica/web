@@ -23,12 +23,13 @@ const tiers = [
       "Detailed Consulting Reports",
     ],
     buttonText: "Contact Us",
-    buttonVariant: "outlined",
+    buttonVariant: "contained",
   },
   {
-    title: "Dashboard Dynamics",
-    subheader: "Recommended",
+    title: "Growth Accelerator",
+    subheader: "Enterprise",
     description: [
+      "Quarterly Business Analysis Cycles",
       "Real-time Dashboarding",
       "Performace evaluation",
       "Forecasting",
@@ -37,12 +38,11 @@ const tiers = [
       "Detailed Consulting Reports",
     ],
     buttonText: "Contact Us",
-    buttonVariant: "outlined",
+    buttonVariant: "contained",
   },
   {
-    title: "Growth Accelerator",
+    title: "Dashboard Dynamics",
     description: [
-      "Quarterly Business Analysis Cycles",
       "Real-time Dashboarding",
       "Performace evaluation",
       "Forecasting",
@@ -97,7 +97,7 @@ export default function Pricing() {
               item
               key={tier.title}
               xs={12}
-              sm={tier.title === "Enterprise" ? 12 : 6}
+              sm={tier.title === "Growth Accelerator" ? 12 : 6}
               md={4}
             >
               <Card
@@ -108,16 +108,16 @@ export default function Pricing() {
                   gap: 4,
                   border:
                     tier.title === "Growth Accelerator"
-                      ? "1px solid"
-                      : undefined,
+                      ? "2px solid"
+                      : "1px solid",
                   borderColor:
                     tier.title === "Growth Accelerator"
                       ? "primary.main"
-                      : undefined,
+                      : "secondary.main",
                   background:
                     tier.title === "Growth Accelerator"
                       ? "linear-gradient(#033363, #021F3B)"
-                      : undefined,
+                      : "linear-gradient(rgba(3, 51, 99, 0.9), rgba(2, 31, 59, 0.5))",
                 }}
               >
                 <CardContent>
@@ -128,7 +128,9 @@ export default function Pricing() {
                       justifyContent: "space-between",
                       alignItems: "center",
                       color:
-                        tier.title === "Growth Accelerator" ? "grey.100" : "",
+                        tier.title === "Growth Accelerator"
+                          ? "grey.100"
+                          : "grey.200",
                     }}
                   >
                     <Typography component="h3" variant="h3">
@@ -157,7 +159,10 @@ export default function Pricing() {
                     sx={{
                       my: 2,
                       opacity: 0.2,
-                      borderColor: "grey.500",
+                      borderColor:
+                        tier.title === "Growth Accelerator"
+                          ? "grey.500"
+                          : "grey.300",
                     }}
                   />
                   {tier.description.map((line) => (
@@ -186,7 +191,7 @@ export default function Pricing() {
                           color:
                             tier.title === "Growth Accelerator"
                               ? "grey.200"
-                              : undefined,
+                              : "grey.50",
                         }}
                       >
                         {line}
