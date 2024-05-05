@@ -3,6 +3,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import { useTheme } from "@mui/system";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 const whiteLogos = [
   { url: "/logos/python.svg", name: "Python" },
@@ -27,10 +28,17 @@ const logoNameStyle = {
 
 export default function LogoCollection() {
   const logos = whiteLogos;
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
     <Box id="logoCollection" sx={{ py: 4, overflowX: "auto" }}>
-      <Grid container justifyContent="flex-start" wrap="nowrap" sx={{ mt: 0.5, opacity: 0.6 }}>
+      <Grid
+        container
+        justifyContent={isMobile ? "flex-start" : "center"}
+        wrap="nowrap"
+        sx={{ mt: 0.5, opacity: 0.6 }}
+      >
         {logos.map((logo, index) => (
           <Grid item key={index}>
             <img
