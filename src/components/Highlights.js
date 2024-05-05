@@ -22,7 +22,7 @@ const items = [
     icon: <SecurityIcon fontSize="large"/>,
     title: "Risk Mitigation",
     description:
-      "By forecasting market trends and identifying potential risks, we assist clients in implementing strategies to mitigate risks and protect their bottom line.",
+      "By forecasting market trends and identifying potential risks, we assist clients in implementing strategies to mitigate risks.",
   },
   {
     icon: <InsightsIcon fontSize="large"/>,
@@ -34,7 +34,7 @@ const items = [
     icon: <EmojiEventsIcon fontSize="large"/>,
     title: "Market Competitiveness",
     description:
-      "We help clients stay ahead of the competition by understanding customer preferences, tailoring offerings, and enhancing customer satisfaction and loyalty.",
+      "We help clients stay ahead of the competition by understanding customer preferences, tailoring offerings, and enhancing customer loyalty.",
   },
   {
     icon: <QueryStatsRoundedIcon fontSize="large"/>,
@@ -106,6 +106,7 @@ export default function Highlights() {
                   <Box sx={{ opacity: "100%" }}>{item.icon}</Box>
                   <Typography
                     fontWeight="medium"
+                    variant="h5"
                     gutterBottom
                     sx={{
                       width: "100%",
@@ -117,7 +118,7 @@ export default function Highlights() {
                     {item.title}
                   </Typography>
                 </Stack>
-                <Typography variant="body1" sx={{ color: "grey.400" }}>
+                <Typography variant="subtitle1" sx={{ color: "grey.400" }}>
                   {item.description}
                 </Typography>
               </Stack>

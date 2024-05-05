@@ -9,6 +9,9 @@ const whiteLogos = [
   { url: "/logos/pandas.svg", name: "Pandas" },
   { url: "/logos/numpy.svg", name: "NumPy" },
   { url: "/logos/powerbi.svg", name: "PowerBI" },
+  { url: "/logos/alteryx.svg", name: "Alteryx" },
+  { url: "/logos/excel.svg", name: "Excel" },
+  { url: "/logos/mssql.svg", name: "SQL" },
 ];
 
 const logoStyle = {
@@ -27,8 +30,8 @@ export default function LogoCollection() {
   const logos = whiteLogos;
 
   return (
-    <Box id="logoCollection" sx={{ py: 4 }}>
-      <Grid container justifyContent="center" sx={{ mt: 0.5, opacity: 0.6 }}>
+    <Box id="logoCollection" sx={{ py: 4, overflowX: "auto" }}>
+      <Grid container justifyContent="flex-start" wrap="nowrap" sx={{ mt: 0.5, opacity: 0.6 }}>
         {logos.map((logo, index) => (
           <Grid item key={index}>
             <img
