@@ -1,7 +1,8 @@
 import ChevronRightRoundedIcon from "@mui/icons-material/ChevronRightRounded";
-import DevicesRoundedIcon from "@mui/icons-material/DevicesRounded";
-import EdgesensorHighRoundedIcon from "@mui/icons-material/EdgesensorHighRounded";
+import InsightsIcon from "@mui/icons-material/Insights";
+import StoreIcon from "@mui/icons-material/Store";
 import ViewQuiltRoundedIcon from "@mui/icons-material/ViewQuiltRounded";
+import VisibilityIcon from "@mui/icons-material/Visibility";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
@@ -15,37 +16,33 @@ import * as React from "react";
 
 const items = [
   {
-    icon: <ViewQuiltRoundedIcon />,
+    icon: <InsightsIcon fontSize="large" />,
     title: "Performance Evaluation",
     description:
       "Our clients gain insights into their operations, allowing them to streamline processes, reduce costs, and ultimately increase profitability. They can identify areas of improvement, optimize resource allocation, and make informed decisions based on data.",
     imageLight: 'url("/images/consulting.jpg")',
-    imageDark: 'url("/images/consulting.jpg")',
   },
   {
-    icon: <EdgesensorHighRoundedIcon />,
+    icon: <VisibilityIcon fontSize="large" />,
     title: "Forecasting",
     description:
       "Our clients can anticipate market trends and demand fluctuations, enabling them to plan inventory, production, and marketing strategies more effectively. This helps our clients stay ahead of the curve, minimize risks, and capitalize on opportunities, ultimately improving their bottom line.",
     imageLight: 'url("/images/dashboard.png")',
-    imageDark: 'url("/images/dashboard.png")',
   },
   {
-    icon: <DevicesRoundedIcon />,
+    icon: <StoreIcon fontSize="large" />,
     title: "Marketing Analytics",
     description:
       "By understanding customer behavior and preferences, our clients can tailor their marketing efforts to target the right audience with the right message at the right time. This leads to higher conversion rates, increased customer engagement, and improved return on marketing investment.",
     imageLight: 'url("/images/customization.png")',
-    imageDark: 'url("/images/customization.png")',
   },
   {
-    icon: <DevicesRoundedIcon />,
+    icon: <ViewQuiltRoundedIcon fontSize="large" />,
     title: "Customer Segmentation",
     description:
       "Our clients can identify their most valuable customer segments and tailor their products, services, and marketing strategies to meet their specific needs. This enhances customer satisfaction, loyalty, and retention, leading to long-term profitability and sustainable growth.",
     imageLight: 'url("/images/segmentation.png")',
-    imageDark: 'url("/images/segmentation.png")',
-  }
+  },
 ];
 
 export default function Features() {
@@ -73,19 +70,6 @@ export default function Features() {
               <Typography component="h2" variant="h4" color="text.primary">
                 Our Capabilities
               </Typography>
-              {/* <Typography
-                variant="body1"
-                color="text.secondary"
-                sx={{ mb: { xs: 2, sm: 4 } }}
-              >
-                We help our clients drive business success through comprehensive
-                business intelligence services, encompassing performance
-                evaluation, forecasting, customer segmentation and marketing
-                analytics. Our capabilities provide businesses with the tools
-                and insights they need to optimize their operations, improve
-                decision-making, and drive sustainable profitability in an
-                increasingly competitive business environment.
-              </Typography> */}
             </div>
             <Grid
               container
@@ -132,10 +116,7 @@ export default function Features() {
             >
               <Box
                 sx={{
-                  backgroundImage: (theme) =>
-                    theme.palette.mode === "light"
-                      ? items[selectedItemIndex].imageLight
-                      : items[selectedItemIndex].imageDark,
+                  backgroundImage: items[selectedItemIndex].imageLight,
                   backgroundSize: "cover",
                   backgroundPosition: "center center",
                   backgroundRepeat: "no-repeat",
@@ -157,23 +138,6 @@ export default function Features() {
                 >
                   {selectedFeature.description}
                 </Typography>
-                <Link
-                  color="primary"
-                  variant="body2"
-                  fontWeight="bold"
-                  sx={{
-                    display: "inline-flex",
-                    alignItems: "center",
-                    "& > svg": { transition: "0.2s" },
-                    "&:hover > svg": { transform: "translateX(2px)" },
-                  }}
-                >
-                  <span>Learn more</span>
-                  <ChevronRightRoundedIcon
-                    fontSize="small"
-                    sx={{ mt: "1px", ml: "2px" }}
-                  />
-                </Link>
               </Box>
             </Box>
             <Stack
@@ -199,16 +163,10 @@ export default function Features() {
                       selectedItemIndex === index
                         ? "action.selected"
                         : undefined,
-                    borderColor: (theme) => {
-                      if (theme.palette.mode === "light") {
-                        return selectedItemIndex === index
-                          ? "primary.light"
-                          : "grey.200";
-                      }
-                      return selectedItemIndex === index
-                        ? "primary.dark"
-                        : "grey.800";
-                    },
+                    borderColor:
+                      selectedItemIndex === index
+                        ? "primary.light"
+                        : "grey.200",
                   }}
                 >
                   <Box
@@ -223,16 +181,10 @@ export default function Features() {
                   >
                     <Box
                       sx={{
-                        color: (theme) => {
-                          if (theme.palette.mode === "light") {
-                            return selectedItemIndex === index
-                              ? "primary.main"
-                              : "grey.300";
-                          }
-                          return selectedItemIndex === index
+                        color:
+                          selectedItemIndex === index
                             ? "primary.main"
-                            : "grey.700";
-                        },
+                            : "grey.300",
                       }}
                     >
                       {icon}
@@ -252,26 +204,6 @@ export default function Features() {
                       >
                         {description}
                       </Typography>
-                      <Link
-                        color="primary"
-                        variant="body2"
-                        fontWeight="bold"
-                        sx={{
-                          display: "inline-flex",
-                          alignItems: "center",
-                          "& > svg": { transition: "0.2s" },
-                          "&:hover > svg": { transform: "translateX(2px)" },
-                        }}
-                        onClick={(event) => {
-                          event.stopPropagation();
-                        }}
-                      >
-                        <span>Learn more</span>
-                        <ChevronRightRoundedIcon
-                          fontSize="small"
-                          sx={{ mt: "1px", ml: "2px" }}
-                        />
-                      </Link>
                     </Box>
                   </Box>
                 </Card>
@@ -301,10 +233,7 @@ export default function Features() {
                   backgroundSize: "cover",
                   backgroundPosition: "center center",
                   backgroundRepeat: "no-repeat",
-                  backgroundImage: (theme) =>
-                    theme.palette.mode === "light"
-                      ? items[selectedItemIndex].imageLight
-                      : items[selectedItemIndex].imageDark,
+                  backgroundImage: items[selectedItemIndex].imageLight,
                 }}
               />
             </Card>
