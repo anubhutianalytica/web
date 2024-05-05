@@ -1,4 +1,3 @@
-import ChevronRightRoundedIcon from "@mui/icons-material/ChevronRightRounded";
 import InsightsIcon from "@mui/icons-material/Insights";
 import StoreIcon from "@mui/icons-material/Store";
 import ViewQuiltRoundedIcon from "@mui/icons-material/ViewQuiltRounded";
@@ -9,7 +8,6 @@ import Card from "@mui/material/Card";
 import Chip from "@mui/material/Chip";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
-import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import * as React from "react";
