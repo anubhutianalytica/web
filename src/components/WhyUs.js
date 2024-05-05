@@ -79,7 +79,7 @@ export default function WhyUs() {
                 bottom: 0,
                 right: 0,
                 left: 0,
-                backgroundColor: "rgba(0,0,0,.6)",
+                backgroundColor: "rgba(7, 47, 99,.6)",
               }}
             />
             <Grid container>

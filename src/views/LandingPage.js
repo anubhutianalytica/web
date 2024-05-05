@@ -5,12 +5,12 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import getLPTheme from '../actions/getLPTheme';
-import Features from '../components/Features';
+import Capabilities from '../components/Capabilities';
 import Footer from '../components/Footer';
 import Hero from '../components/Hero';
-import Highlights from '../components/Highlights';
+import HowWeHelp from '../components/HowWeHelp';
 import LogoCollection from '../components/LogoCollection';
-import Pricing from '../components/Pricing';
+import Services from '../components/Services';
 import WhyUs from '../components/WhyUs';
 import NavBar from '../components/navigation/AppBar';
 
@@ -30,13 +30,13 @@ export default function LandingPage() {
       <Box sx={{ bgcolor: 'background.paper' }}>
         <WhyUs />
         <Divider />
-        <Features />
+        <Capabilities />
         <Divider />
-        <Highlights />
+        <HowWeHelp />
         <Divider />
         <LogoCollection />
         <Divider />
-        <Pricing />
+        <Services />
         <Divider />
         <Footer />
       </Box>

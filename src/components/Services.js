@@ -12,7 +12,7 @@ import Typography from "@mui/material/Typography";
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 import CheckCircleRoundedIcon from "@mui/icons-material/CheckCircleRounded";
 
-const tiers = [
+const services = [
   {
     title: "Insight Essentials",
     description: [
@@ -55,10 +55,10 @@ const tiers = [
   },
 ];
 
-export default function Pricing() {
+export default function Services() {
   return (
     <Box
-      id="pricing"
+      id="services"
       sx={{
         pt: { xs: 4, sm: 2 },
         pb: { xs: 8, sm: 2 },
@@ -92,12 +92,12 @@ export default function Pricing() {
           </Typography>
         </Box>
         <Grid container spacing={3} alignItems="center" justifyContent="center">
-          {tiers.map((tier) => (
+          {services.map((service) => (
             <Grid
               item
-              key={tier.title}
+              key={service.title}
               xs={12}
-              sm={tier.title === "Growth Accelerator" ? 12 : 6}
+              sm={service.title === "Growth Accelerator" ? 12 : 6}
               md={4}
             >
               <Card
@@ -107,15 +107,15 @@ export default function Pricing() {
                   flexDirection: "column",
                   gap: 4,
                   border:
-                    tier.title === "Growth Accelerator"
+                  service.title === "Growth Accelerator"
                       ? "2px solid"
                       : "1px solid",
                   borderColor:
-                    tier.title === "Growth Accelerator"
+                  service.title === "Growth Accelerator"
                       ? "primary.main"
                       : "secondary.main",
                   background:
-                    tier.title === "Growth Accelerator"
+                  service.title === "Growth Accelerator"
                       ? "linear-gradient(#033363, #021F3B)"
                       : "linear-gradient(rgba(3, 51, 99, 0.9), rgba(2, 31, 59, 0.5))",
                 }}
@@ -128,22 +128,21 @@ export default function Pricing() {
                       justifyContent: "space-between",
                       alignItems: "center",
                       color:
-                        tier.title === "Growth Accelerator"
+                      service.title === "Growth Accelerator"
                           ? "grey.100"
                           : "grey.200",
                     }}
                   >
                     <Typography component="h3" variant="h3">
-                      {tier.title}
+                      {service.title}
                     </Typography>
-                    {tier.title === "Growth Accelerator" && (
+                    {service.title === "Growth Accelerator" && (
                       <Chip
                         icon={<AutoAwesomeIcon />}
-                        label={tier.subheader}
+                        label={service.subheader}
                         size="small"
                         sx={{
-                          background: (theme) =>
-                            theme.palette.mode === "light" ? "" : "none",
+                          background: "",
                           backgroundColor: "primary.contrastText",
                           "& .MuiChip-label": {
                             color: "primary.dark",
@@ -160,12 +159,12 @@ export default function Pricing() {
                       my: 2,
                       opacity: 0.2,
                       borderColor:
-                        tier.title === "Growth Accelerator"
+                      service.title === "Growth Accelerator"
                           ? "grey.500"
                           : "grey.300",
                     }}
                   />
-                  {tier.description.map((line) => (
+                  {service.description.map((line) => (
                     <Box
                       key={line}
                       sx={{
@@ -179,7 +178,7 @@ export default function Pricing() {
                         sx={{
                           width: 20,
                           color:
-                            tier.title === "Growth Accelerator"
+                          service.title === "Growth Accelerator"
                               ? "primary.light"
                               : "primary.main",
                         }}
@@ -189,7 +188,7 @@ export default function Pricing() {
                         variant="subtitle2"
                         sx={{
                           color:
-                            tier.title === "Growth Accelerator"
+                          service.title === "Growth Accelerator"
                               ? "grey.200"
                               : "grey.50",
                         }}
@@ -202,12 +201,12 @@ export default function Pricing() {
                 <CardActions>
                   <Button
                     fullWidth
-                    variant={tier.buttonVariant}
+                    variant={service.buttonVariant}
                     component="a"
                     href="mailto:contact@anubhutianalytics.com"
                     target="_blank"
                   >
-                    {tier.buttonText}
+                    {service.buttonText}
                   </Button>
                 </CardActions>
               </Card>

@@ -50,10 +50,10 @@ const items = [
   },
 ];
 
-export default function Highlights() {
+export default function HowWeHelp() {
   return (
     <Box
-      id="highlights"
+      id="howWeHelp"
       sx={{
         pt: { xs: 4, sm: 12 },
         pb: { xs: 8, sm: 16 },

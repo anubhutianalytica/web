@@ -43,7 +43,7 @@ const items = [
   },
 ];
 
-export default function Features() {
+export default function Capabilities() {
   const [selectedItemIndex, setSelectedItemIndex] = React.useState(0);
 
   const handleItemClick = (index) => {
@@ -54,7 +54,7 @@ export default function Features() {
 
   return (
     <Box
-      id="features"
+      id="capabilities"
       sx={{
         pt: { xs: 4, sm: 2 },
         pb: { xs: 8, sm: 2 },
