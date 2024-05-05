@@ -61,14 +61,32 @@ export default function Capabilities() {
         color: "white",
       }}
     >
-      <Container sx={{ py: { xs: 8, sm: 16 } }}>
+       <Container
+        className="container"
+        sx={{
+          pt: { xs: 4, sm: 4 },
+          pb: { xs: 8, sm: 6 },
+          position: "relative",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: { xs: 3, sm: 6 },
+        }}
+      >
+      <Typography
+          component="h2"
+          variant="h4"
+          color="text.primary"
+          sx={{
+            width: { sm: "100%", md: "60%" },
+            textAlign: { sm: "left", md: "center" },
+          }}
+        >
+          Our Capabilities
+        </Typography>
         <Grid container spacing={6}>
           <Grid item xs={12} md={6}>
-            <div>
-              <Typography component="h2" variant="h4" color="text.primary">
-                Our Capabilities
-              </Typography>
-            </div>
+              
             <Grid
               container
               item

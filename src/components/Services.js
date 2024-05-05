@@ -22,7 +22,20 @@ const services = [
       "Marketing Analytics",
       "Detailed Consulting Reports",
     ],
-    buttonText: "Contact Us",
+    buttonText: "Chat With Us",
+    buttonVariant: "contained",
+  },
+  {
+    title: "Dashboard Dynamics",
+    description: [
+      "Real-time Dashboarding",
+      "Performace evaluation",
+      "Forecasting",
+      "Customer Segmentation",
+      "Marketing Analytics",
+      "Detailed Consulting Reports",
+    ],
+    buttonText: "Chat With Us",
     buttonVariant: "contained",
   },
   {
@@ -37,22 +50,9 @@ const services = [
       "Marketing Analytics",
       "Detailed Consulting Reports",
     ],
-    buttonText: "Contact Us",
+    buttonText: "Chat With Us",
     buttonVariant: "contained",
-  },
-  {
-    title: "Dashboard Dynamics",
-    description: [
-      "Real-time Dashboarding",
-      "Performace evaluation",
-      "Forecasting",
-      "Customer Segmentation",
-      "Marketing Analytics",
-      "Detailed Consulting Reports",
-    ],
-    buttonText: "Contact Us",
-    buttonVariant: "contained",
-  },
+  }
 ];
 
 export default function Services() {
@@ -67,8 +67,8 @@ export default function Services() {
     >
       <Container
         sx={{
-          pt: { xs: 4, sm: 12 },
-          pb: { xs: 8, sm: 16 },
+          pt: { xs: 4, sm: 4 },
+          pb: { xs: 8, sm: 6 },
           position: "relative",
           display: "flex",
           flexDirection: "column",
@@ -203,7 +203,7 @@ export default function Services() {
                     fullWidth
                     variant={service.buttonVariant}
                     component="a"
-                    href="mailto:contact@anubhutianalytics.com"
+                    href="https://wa.me/919205966702/"
                     target="_blank"
                   >
                     {service.buttonText}

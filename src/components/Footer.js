@@ -120,27 +120,16 @@ export default function Footer() {
             </Typography>
             <Typography
               component="h5"
-              // variant="h4"
               color="text.primary"
               sx={{
-                width: { sm: "50%", md: "60%" },
+                width: { sm: "50%", md: "70%" },
                 textAlign: { sm: "left", md: "left" },
                 pr: 3,
               }}
             >
-              +91 9205966702
-            </Typography>
-            <Typography
-              component="h5"
-              // variant="h4"
-              color="text.primary"
-              sx={{
-                width: { sm: "50%", md: "60%" },
-                textAlign: { sm: "left", md: "left" },
-                pr: 3,
-              }}
-            >
-              contact@anubhutianalytics.com
+            Phone:  +91 9205966702<br />
+            Email: contact@anubhutianalytics.com<br />
+            Email: anubhutianalytics@gmail.com
             </Typography>
           </Box>
           <Box

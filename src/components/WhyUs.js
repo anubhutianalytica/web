@@ -39,8 +39,8 @@ export default function WhyUs() {
       <Container
         className="container"
         sx={{
-          pt: { xs: 4, sm: 12 },
-          pb: { xs: 8, sm: 16 },
+          pt: { xs: 4, sm: 4 },
+          pb: { xs: 8, sm: 6 },
           position: "relative",
           display: "flex",
           flexDirection: "column",
