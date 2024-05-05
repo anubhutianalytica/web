@@ -24,7 +24,7 @@ export default function Hero() {
         sx={{
           display: "flex",
           flexDirection: "column",
-          alignItems: "flex-start", // Align items vertically to the left
+          alignItems: "flex-start",
           pt: { xs: 14, sm: 20 },
           pb: { xs: 8, sm: 12 },
         }}
@@ -35,8 +35,8 @@ export default function Hero() {
           useFlexGap
           sx={{
             width: { xs: "100%", sm: "100%" },
-            flexDirection: { xs: "column", sm: "row" }, // Column on small screens, row on larger screens
-            justifyContent: { xs: "flex-start", sm: "space-between" }, // Align items to the left on small screens, space-between on larger screens
+            flexDirection: { xs: "column", sm: "row" },
+            justifyContent: { xs: "flex-start", sm: "space-between" },
             alignItems: "flex-start",
           }}
           className="about-us-stack"
@@ -47,6 +47,8 @@ export default function Hero() {
               display: "flex",
               flexDirection: { xs: "column" },
               alignSelf: "center",
+              background: {
+                xs: "", sm: "radial-gradient(circle closest-side, rgba(72, 172, 240, 0.35) 0%, rgba(181, 37, 37, 0) 100%)"},
               textAlign: "center",
               fontSize: "clamp(3.5rem, 10vw, 4rem)",
             }}
@@ -65,17 +67,6 @@ export default function Hero() {
             >
               Impactful Services
             </Typography>
-            {/* <Stack
-              direction={{ xs: "column", sm: "row" }}
-              alignSelf="center"
-              spacing={1}
-              useFlexGap
-              sx={{ pt: 2, width: { xs: "100%", sm: "auto" } }}
-            >
-              <Button variant="contained" color="primary">
-                Start Today
-              </Button>
-            </Stack> */}
           </Typography>
           <Typography
             textAlign={{ xs: "center", sm: "end" }}

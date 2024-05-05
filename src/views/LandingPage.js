@@ -28,11 +28,8 @@ export default function LandingPage() {
       <NavBar mode={mode} toggleColorMode={toggleColorMode} />
       <Hero />
       <Box sx={{ bgcolor: 'background.paper' }}>
-        {/* <LogoCollection /> */}
         <Features />
         <Divider />
-        {/* <Testimonials /> */}
-        {/* <Divider /> */}
         <Highlights />
         <Divider />
         <LogoCollection />
