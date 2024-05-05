@@ -26,7 +26,6 @@ const logoNameStyle = {
 };
 
 export default function LogoCollection() {
-  const theme = useTheme();
   const logos = whiteLogos;
 
   return (

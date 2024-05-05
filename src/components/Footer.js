@@ -69,7 +69,6 @@ export default function Footer() {
     setState({ ...state, open: false });
   };
 
-
   return (
     <Box
       sx={{
@@ -160,7 +159,11 @@ export default function Footer() {
                 textAlign: "right",
               }}
             >
-              <Box>
+              <Box
+                sx={{
+                  display: { xs: "none", md: "block" },
+                }}
+              >
                 <img
                   src={logo}
                   style={logoStyle}
