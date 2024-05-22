@@ -182,6 +182,8 @@ export default function Footer() {
             <IconButton
               color="inherit"
               href="https://www.linkedin.com/in/anubhutianalytics/"
+              target="_blank" 
+              rel="noopener noreferrer"
               aria-label="LinkedIn"
               sx={{ alignSelf: "center", p: 2, mb: 5 }}
             >
