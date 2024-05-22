@@ -71,6 +71,7 @@ export default function Footer() {
 
   return (
     <Box
+    id="contactUs"
       sx={{
         pt: { xs: 2, sm: 4 },
         pb: { xs: 2, sm: 4 },

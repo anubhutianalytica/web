@@ -110,6 +110,10 @@ function NavBar({ mode, toggleColorMode }) {
                   text={"Services"}
                   onClick={() => scrollToSection("services")}
                 />
+                <NavBarMenuItem
+                  text={"Contact Us"}
+                  onClick={() => scrollToSection("contactUs")}
+                />
               </Box>
             </Box>
             <Box sx={{ display: { sm: "", md: "none" } }}>
@@ -150,6 +154,9 @@ function NavBar({ mode, toggleColorMode }) {
                   </MenuItem>
                   <MenuItem onClick={() => scrollToSection("services")}>
                     Services
+                  </MenuItem>
+                  <MenuItem onClick={() => scrollToSection("contactUs")}>
+                    Contact Us
                   </MenuItem>
 
                   <Divider />
