@@ -80,8 +80,7 @@ export default function HowWeHelp() {
             How do we help you?
           </Typography>
           <Typography variant="body1" sx={{ color: "grey.400" }}>
-            Explore why we stand out: adaptability, durability, and innovation.
-            Enjoy reliable customer support and precision in every detail.
+            Our vision is to empower small and medium businesses with analytics and consulting
           </Typography>
         </Box>
         <Grid container spacing={2.5}>
