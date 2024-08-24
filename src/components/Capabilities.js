@@ -82,7 +82,7 @@ export default function Capabilities() {
             textAlign: { sm: "left", md: "center" },
           }}
         >
-          Our Capabilities
+          Capabilities: We Understand Every Business is Unique
         </Typography>
         <Grid container spacing={6}>
           <Grid item xs={12} md={6}>
