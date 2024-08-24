@@ -78,13 +78,8 @@ export default function Hero() {
               pt: 0,
             }}
           >
-            We help our clients drive business success through comprehensive
-            business intelligence services, encompassing performance evaluation,
-            forecasting, customer segmentation and marketing analytics.
-            <br /> <br /> Our capabilities provide businesses with the tools and
-            insights they need to optimize their operations, improve
-            decision-making, and drive sustainable profitability in an
-            increasingly competitive business environment.
+            Small & Medium Businesses require customized and affordable analytics and consulting - driven by this principle,
+            we solve business problems of business dashboards, forecasting, marketing analytics, and analytics software.
           </Typography>
         </Stack>
         {/* <Box
