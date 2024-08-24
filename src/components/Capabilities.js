@@ -15,31 +15,31 @@ import * as React from "react";
 const items = [
   {
     icon: <InsightsIcon fontSize="large" />,
-    title: "Performance Evaluation",
+    title: "Performance Consulting",
     description:
-      "Our clients gain insights into their operations, allowing them to streamline processes, reduce costs, and ultimately increase profitability. They can identify areas of improvement, optimize resource allocation, and make informed decisions based on data.",
-    imageLight: 'url("/images/consulting.jpg")',
+      "We help you identify and select key metrics across areas such as revenue, customer interactions, operations, and employee performance, and then use analytics tools to build customized business dashboards to track and assess these metrics, providing actionable insights to drive growth and address performance gaps",
+    imageLight: 'url("/images/PerformanceConsulting.png")',
   },
   {
     icon: <VisibilityIcon fontSize="large" />,
-    title: "Forecasting",
+    title: "Strategy Consulting",
     description:
-      "Our clients can anticipate market trends and demand fluctuations, enabling them to plan inventory, production, and marketing strategies more effectively. This helps our clients stay ahead of the curve, minimize risks, and capitalize on opportunities, ultimately improving their bottom line.",
-    imageLight: 'url("/images/dashboard.png")',
+      "Our services include market sizing to identify growth opportunities, forecasting to predict future trends, and benchmarking to measure performance against industry standards. We develop tailored strategic roadmaps and actionable plans, enabling you to drive growth and navigate challenges effectively",
+    imageLight: 'url("/images/StrategyConsulting.png")',
   },
   {
     icon: <StoreIcon fontSize="large" />,
-    title: "Marketing Analytics",
+    title: "Marketing Consulting",
     description:
-      "By understanding customer behavior and preferences, our clients can tailor their marketing efforts to target the right audience with the right message at the right time. This leads to higher conversion rates, increased customer engagement, and improved return on marketing investment.",
-    imageLight: 'url("/images/customization.png")',
+      "We assist in optimizing your marketing efforts through detailed customer segmentation, media mix modeling, and campaign effectiveness analysis. Our services include developing targeted marketing strategies, evaluating the impact of your campaigns, and leveraging analytics to enhance media investments, drive growth, and improve ROI",
+    imageLight: 'url("/images/MarketingConsulting.png")',
   },
   {
     icon: <ViewQuiltRoundedIcon fontSize="large" />,
-    title: "Customer Segmentation",
+    title: "Analytics Consulting",
     description:
-      "Our clients can identify their most valuable customer segments and tailor their products, services, and marketing strategies to meet their specific needs. This enhances customer satisfaction, loyalty, and retention, leading to long-term profitability and sustainable growth.",
-    imageLight: 'url("/images/segmentation.png")',
+      "Analytics consulting empowers organizations to harness analytics and AI effectively, making them self-sufficient. We build software applications, technical dashboards, and automate machine learning pipelines, while also developing the necessary infrastructure to support these solutions",
+    imageLight: 'url("/images/AnalyticsConsulting.png")',
   },
 ];
 
