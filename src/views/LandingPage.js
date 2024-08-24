@@ -10,8 +10,6 @@ import Footer from '../components/Footer';
 import Hero from '../components/Hero';
 import HowWeHelp from '../components/HowWeHelp';
 import LogoCollection from '../components/LogoCollection';
-import Services from '../components/Services';
-import WhyUs from '../components/WhyUs';
 import NavBar from '../components/navigation/AppBar';
 
 export default function LandingPage() {
@@ -35,10 +33,6 @@ export default function LandingPage() {
         <Capabilities />
         <Divider />
         <Footer />
-        <WhyUs />
-        <Divider />
-        <Services />
-        <Divider />
       </Box>
     </ThemeProvider>
   );
