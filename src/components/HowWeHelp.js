@@ -77,7 +77,7 @@ export default function HowWeHelp() {
           }}
         >
           <Typography component="h2" variant="h4">
-            How do we help you?
+            How do we create value for your business?
           </Typography>
           <Typography variant="body1" sx={{ color: "grey.400" }}>
             Our vision is to empower small and medium businesses with analytics and consulting
