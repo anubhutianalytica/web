@@ -16,37 +16,37 @@ const items = [
     icon: <SavingsIcon fontSize="large"/>,
     title: "Cost Reduction",
     description:
-      "Through performance evaluation and optimization, we help clients reduce unnecessary expenses and improve cost-effectiveness.",
+      "An average cost reduction of 10% can be achieved through the use of data analytics and consulting",
   },
   {
     icon: <SecurityIcon fontSize="large"/>,
     title: "Risk Mitigation",
     description:
-      "By forecasting market trends and identifying potential risks, we assist clients in implementing strategies to mitigate risks.",
+      "Data driven dashboards, inventory management, KPIs tracking can improve decision making by ~50%",
   },
   {
     icon: <InsightsIcon fontSize="large"/>,
     title: "Strategic Decisions",
     description:
-      "Our analysis services provide clients with data-driven insights that enables them to  capitalize on opportunities for growth.",
+      "Forecasting, market sizing can help estimate future demand and make better strategies to improve bottomline and stay competitive",
   },
   {
     icon: <EmojiEventsIcon fontSize="large"/>,
-    title: "Market Competitiveness",
+    title: "Marketing Optimization",
     description:
-      "We help clients stay ahead of the competition by understanding customer preferences, tailoring offerings, and enhancing customer loyalty.",
+      "Knowing promotion effectiveness can reduce more than 10% marketing costs and improve ROIs",
   },
   {
     icon: <QueryStatsRoundedIcon fontSize="large"/>,
     title: "Revenue Growth",
     description:
-      "Through data analysis, we drive revenue growth and improve overall profitability for our clients.",
+      "Sales Analytics coupled with statistical modeling can help identify areas of growth and profitability",
   },
   {
     icon: <CardMembershipIcon fontSize="large"/>,
     title: " Customer Retention",
     description:
-      "Through deep analysis of customer behavior and preferences, we help clients meet the specific needs of their customer segments ",
+      "Knowing your best, potential and at risk customers can improve customer retention & satisfaction",
   },
 ];
 
