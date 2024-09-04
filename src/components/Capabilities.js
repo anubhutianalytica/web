@@ -61,7 +61,7 @@ export default function Capabilities() {
         color: "white",
       }}
     >
-       <Container
+      <Container
         className="container"
         sx={{
           pt: { xs: 4, sm: 4 },
@@ -73,7 +73,7 @@ export default function Capabilities() {
           gap: { xs: 3, sm: 6 },
         }}
       >
-      <Typography
+        <Typography
           component="h2"
           variant="h4"
           color="text.primary"
@@ -86,7 +86,6 @@ export default function Capabilities() {
         </Typography>
         <Grid container spacing={6}>
           <Grid item xs={12} md={6}>
-              
             <Grid
               container
               item
@@ -244,8 +243,10 @@ export default function Capabilities() {
               <Box
                 sx={{
                   m: "auto",
-                  width: 4200,
-                  height: 500,
+                  width: "100%",
+                  height: "auto",
+                  maxHeight: 400,
+                  aspectRatio: "16/9", // Maintain aspect ratio
                   backgroundSize: "cover",
                   backgroundPosition: "center center",
                   backgroundRepeat: "no-repeat",
