@@ -177,12 +177,12 @@ export default function Footer() {
         <Box
           sx={{
             display: "flex",
-            justifyContent: "space-between",
+            flexDirection: { xs: "column", md: "row" }, // Change layout based on screen size
+            justifyContent: { xs: "center", md: "space-between" },
             width: "100%",
             maxWidth: "100%", // Prevent overflow
           }}
         >
-          <Copyright />
           <Stack
             direction="row"
             justifyContent="left"
@@ -206,7 +206,6 @@ export default function Footer() {
             <Tooltip title="contact@anubhutianalytics.com">
               <IconButton
                 color="inherit"
-                // href="mailto:contact@anubhutianalytics.com"
                 aria-label="mail"
                 onClick={handleClick({
                   text: "contact@anubhutianalytics.com",
@@ -220,7 +219,6 @@ export default function Footer() {
             <Tooltip title="+91 9205966702">
               <IconButton
                 color="inherit"
-                // href="tel:+91 9205966702"
                 aria-label="call"
                 onClick={handleClick({ text: "+91 9205966702", icon: "Call" })}
                 sx={{ alignSelf: "center", p: 2, mb: 5 }}
@@ -229,6 +227,7 @@ export default function Footer() {
               </IconButton>
             </Tooltip>
           </Stack>
+          <Copyright />
         </Box>
       </Container>
       <Dialog
