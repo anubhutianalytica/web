@@ -22,7 +22,9 @@ const logoStyle = {
   width: "175px",
   height: "auto",
   pt: "15px",
+  maxWidth: "100%", // Ensure the logo does not overflow
 };
+
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
@@ -71,11 +73,13 @@ export default function Footer() {
 
   return (
     <Box
-    id="contactUs"
+      id="contactUs"
       sx={{
         pt: { xs: 2, sm: 4 },
         pb: { xs: 2, sm: 4 },
         color: "white",
+        maxWidth: "100%", // Prevent overflow
+        overflowX: "hidden", // Hide any potential overflow
       }}
     >
       <Container
@@ -86,6 +90,7 @@ export default function Footer() {
           gap: { xs: 4, sm: 8 },
           py: { xs: 2, sm: 2 },
           textAlign: { sm: "center", md: "left" },
+          maxWidth: "100%", // Prevent overflow
         }}
       >
         <Box
@@ -94,8 +99,8 @@ export default function Footer() {
             flexDirection: "row",
             width: "100%",
             justifyContent: "space-between",
+            maxWidth: "100%", // Prevent overflow
           }}
-          className="container"
         >
           <Box
             sx={{
@@ -103,8 +108,8 @@ export default function Footer() {
               flexDirection: "column",
               width: "100%",
               justifyContent: "space-between",
+              maxWidth: "100%", // Prevent overflow
             }}
-            className="container"
           >
             <Typography
               component="h2"
@@ -115,6 +120,7 @@ export default function Footer() {
                 textAlign: { sm: "left", md: "left" },
                 pr: 3,
                 mt: 3,
+                maxWidth: "100%", // Prevent overflow
               }}
             >
               Contact Us
@@ -126,10 +132,13 @@ export default function Footer() {
                 width: { sm: "50%", md: "70%" },
                 textAlign: { sm: "left", md: "left" },
                 pr: 3,
+                maxWidth: "100%", // Prevent overflow
               }}
             >
-            Phone:  +91 9205966702<br />
-            Email: contact@anubhutianalytics.com<br />
+              Phone: +91 9205966702
+              <br />
+              Email: contact@anubhutianalytics.com
+              <br />
             </Typography>
           </Box>
           <Box
@@ -139,6 +148,7 @@ export default function Footer() {
               gap: 4,
               minWidth: { xs: "50%", sm: "60%" },
               justifyContent: "end",
+              maxWidth: "100%", // Prevent overflow
             }}
           >
             <Box
@@ -146,11 +156,13 @@ export default function Footer() {
                 width: { xs: "100%", sm: "60%" },
                 alignSelf: "center",
                 textAlign: "right",
+                maxWidth: "100%", // Prevent overflow
               }}
             >
               <Box
                 sx={{
                   display: { xs: "none", md: "block" },
+                  maxWidth: "100%", // Prevent overflow
                 }}
               >
                 <img
@@ -167,6 +179,7 @@ export default function Footer() {
             display: "flex",
             justifyContent: "space-between",
             width: "100%",
+            maxWidth: "100%", // Prevent overflow
           }}
         >
           <Copyright />
@@ -177,12 +190,13 @@ export default function Footer() {
             useFlexGap
             sx={{
               color: "text.secondary",
+              maxWidth: "100%", // Prevent overflow
             }}
           >
             <IconButton
               color="inherit"
               href="https://www.linkedin.com/company/anubhutianalytics/"
-              target="_blank" 
+              target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
               sx={{ alignSelf: "center", p: 2, mb: 5 }}
