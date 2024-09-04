@@ -130,7 +130,6 @@ export default function Footer() {
             >
             Phone:  +91 9205966702<br />
             Email: contact@anubhutianalytics.com<br />
-            Email: anubhutianalytics@gmail.com
             </Typography>
           </Box>
           <Box
@@ -182,7 +181,7 @@ export default function Footer() {
           >
             <IconButton
               color="inherit"
-              href="https://www.linkedin.com/in/anubhutianalytics/"
+              href="https://www.linkedin.com/company/anubhutianalytics/"
               target="_blank" 
               rel="noopener noreferrer"
               aria-label="LinkedIn"
