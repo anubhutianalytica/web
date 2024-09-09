@@ -1,6 +1,4 @@
-import PropTypes from "prop-types";
 import * as React from "react";
-
 import MenuIcon from "@mui/icons-material/Menu";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -21,7 +19,7 @@ const logoStyle = {
   cursor: "pointer",
 };
 
-function NavBar({ mode, toggleColorMode }) {
+function NavBar() {
   const [open, setOpen] = React.useState(false);
   const theme = useTheme();
   const logo = theme.palette.mode === "light" ? blackLogo : whiteLogo;
@@ -31,16 +29,39 @@ function NavBar({ mode, toggleColorMode }) {
   };
 
   const scrollToSection = (sectionId) => {
-    const sectionElement = document.getElementById(sectionId);
-    const offset = 128;
-    if (sectionElement) {
-      const targetScroll = sectionElement.offsetTop - offset;
-      sectionElement.scrollIntoView({ behavior: "smooth" });
-      window.scrollTo({
-        top: targetScroll,
-        behavior: "smooth",
-      });
-      setOpen(false);
+    const isBlogPage = window.location.pathname === "/blog";
+
+    if (isBlogPage) {
+      // Navigate to the home page
+      window.location.href = "/";
+
+      // Use a delay to ensure the navigation happens before scrolling
+      setTimeout(() => {
+        // Scroll to the section after navigation
+        const sectionElement = document.getElementById(sectionId);
+        const offset = 128;
+        if (sectionElement) {
+          const targetScroll = sectionElement.offsetTop - offset;
+          sectionElement.scrollIntoView({ behavior: "smooth" });
+          window.scrollTo({
+            top: targetScroll,
+            behavior: "smooth",
+          });
+        }
+      }, 300); // Adjust the delay as needed
+    } else {
+      // Directly scroll to the section if already on the home page
+      const sectionElement = document.getElementById(sectionId);
+      const offset = 128;
+      if (sectionElement) {
+        const targetScroll = sectionElement.offsetTop - offset;
+        sectionElement.scrollIntoView({ behavior: "smooth" });
+        window.scrollTo({
+          top: targetScroll,
+          behavior: "smooth",
+        });
+        setOpen(false);
+      }
     }
   };
 
@@ -91,6 +112,7 @@ function NavBar({ mode, toggleColorMode }) {
                   src={logo}
                   style={logoStyle}
                   alt="Logo of Anubhuti Analytics"
+                  onClick={() => (window.location.href = "/")}
                 />
               </Box>
               <Box sx={{ display: { xs: "none", md: "flex" } }}>
@@ -113,6 +135,10 @@ function NavBar({ mode, toggleColorMode }) {
                 <NavBarMenuItem
                   text={"Contact Us"}
                   onClick={() => scrollToSection("contactUs")}
+                />
+                <NavBarMenuItem
+                  text={"Blog"}
+                  onClick={() => (window.location.href = "/blog")}
                 />
               </Box>
             </Box>
@@ -158,6 +184,9 @@ function NavBar({ mode, toggleColorMode }) {
                   <MenuItem onClick={() => scrollToSection("contactUs")}>
                     Contact Us
                   </MenuItem>
+                  <MenuItem onClick={() => (window.location.href = "/blog")}>
+                    Blog
+                  </MenuItem>
 
                   <Divider />
                   <MenuItem>
@@ -181,9 +210,5 @@ function NavBar({ mode, toggleColorMode }) {
     </div>
   );
 }
-NavBar.propTypes = {
-  mode: PropTypes.oneOf(["dark", "light"]).isRequired,
-  toggleColorMode: PropTypes.func.isRequired,
-};
 
 export default NavBar;
