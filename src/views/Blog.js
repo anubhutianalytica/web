@@ -1,69 +1,104 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
+import { useParams, useNavigate } from 'react-router-dom';
+import Layout from '../views/Layout';
+import { Box, Container, Typography } from '@mui/material';
+import { alpha } from "@mui/material";
+import frontMatter from 'front-matter';
 
-const Blog = ({ slug }) => {
-  const [content, setContent] = useState('');
-  const [title, setTitle] = useState('');
-  const [date, setDate] = useState('');
-  const [error, setError] = useState(null);
+const Blog = () => {
+  const { fileName } = useParams();
+  const [blog, setBlog] = React.useState(null);
+  const [error, setError] = React.useState(null);
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    const fetchBlogPost = async () => {
+  React.useEffect(() => {
+    const fetchBlog = async () => {
       try {
-        // Fetch the markdown file from the public folder
-        const response = await fetch(`${process.env.PUBLIC_URL}/blogs/${slug}.md`);
-        const text = await response.text();
-        console.log('Raw markdown content:', text);
-
-        // Split based on frontmatter --- delimiters
-        const parts = text.split('---');
-        if (parts.length >= 3) {
-          const frontmatter = parts[1].trim();
-          const markdownContent = parts[2].trim();
-
-          console.log('Frontmatter:', frontmatter);
-          console.log('Markdown Content:', markdownContent);
-
-          // Split frontmatter into lines
-          const frontmatterLines = frontmatter.split('\n').filter(Boolean);
-
-          // Extract title and date
-          const titleLine = frontmatterLines.find(line => line.startsWith('title: '));
-          const dateLine = frontmatterLines.find(line => line.startsWith('date: '));
-
-          const parsedTitle = titleLine ? titleLine.replace('title: ', '').trim() : 'Untitled';
-          const parsedDate = dateLine ? new Date(dateLine.replace('date: ', '').trim()) : null;
-
-          setTitle(parsedTitle);
-          setDate(parsedDate);
-          setContent(markdownContent);
-        } else {
-          setError('Invalid blog post structure.');
+        const response = await fetch('/blogs/blogList.json');
+        const blogFiles = await response.json();
+        if (!blogFiles.includes(fileName + '.md')) {
+          setError('Blog not found');
+          return;
         }
+
+        const res = await fetch(`/blogs/${fileName}.md`);
+        if (!res.ok) {
+          throw new Error('Failed to fetch blog post');
+        }
+        const text = await res.text();
+        const { attributes, body } = frontMatter(text);
+        setBlog({ ...attributes, content: body });
       } catch (error) {
         console.error('Error fetching blog post:', error);
-        setError('Failed to load blog post.');
+        setError('Error fetching blog post');
       }
     };
 
-    fetchBlogPost();
-  }, [slug]);
+    fetchBlog();
+  }, [fileName]);
+
+  if (error) {
+    return (
+      <Layout>
+        <Container sx={{ pt: 4, pb: 8 }}>
+          <Typography variant="h4" color="error">
+            {error}
+          </Typography>
+        </Container>
+      </Layout>
+    );
+  }
 
   return (
-    <div>
-      {error ? (
-        <p>{error}</p>
-      ) : (
-        <>
-          <h1>{title}</h1>
-          <p>{date ? date.toLocaleDateString() : 'Unknown date'}</p>
-          <ReactMarkdown remarkPlugins={[remarkGfm]}>
-            {content}
-          </ReactMarkdown>
-        </>
-      )}
-    </div>
+    <Layout>
+      <Box
+        id="hero"
+        sx={(theme) => ({
+          width: "100%",
+          backgroundImage:
+            theme.palette.mode === "light"
+              ? "linear-gradient(180deg, #48ACF0, #FFF)"
+              : `linear-gradient(#48ACF0, ${alpha("#090E10", 0.0)})`,
+          backgroundSize: "100% 20%",
+          backgroundRepeat: "no-repeat",
+        })}
+      >
+        <Container
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "flex-start",
+            pt: { xs: 14, sm: 20 },
+            pb: { xs: 8, sm: 12 },
+          }}
+        >
+          <Typography
+            variant="h1"
+            sx={{
+              display: "flex",
+              flexDirection: { xs: "column" },
+              alignSelf: "center",
+              background: {
+                xs: "", sm: "radial-gradient(circle closest-side, rgba(72, 172, 240, 0.35) 0%, rgba(181, 37, 37, 0) 100%)"},
+              textAlign: "center",
+              fontSize: "clamp(3.5rem, 10vw, 4rem)",
+            }}
+          >
+            {blog?.title}
+          </Typography>
+        </Container>
+      </Box>
+      <Container sx={{ pt: 4, pb: 8 }}>
+        <Typography variant="h6" color="textSecondary">
+          {blog?.subtitle}
+        </Typography>
+        <Typography variant="body2" color="textSecondary">
+          {new Date(blog?.date).toLocaleDateString()}
+        </Typography>
+        <ReactMarkdown>{blog?.content}</ReactMarkdown>
+      </Container>
+    </Layout>
   );
 };
 

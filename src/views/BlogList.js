@@ -1,12 +1,13 @@
 import React from 'react';
-import ReactMarkdown from 'react-markdown';
+import { useNavigate } from 'react-router-dom';
 import Layout from '../views/Layout';
-import { Box, Container, Typography } from '@mui/material';
+import { Box, Container, Typography, Card, CardContent, CardActionArea, Grid } from '@mui/material';
 import { alpha } from "@mui/material";
 import frontMatter from 'front-matter';
 
 const BlogList = () => {
   const [blogs, setBlogs] = React.useState([]);
+  const navigate = useNavigate();
 
   React.useEffect(() => {
     const fetchBlogs = async () => {
@@ -17,8 +18,8 @@ const BlogList = () => {
           blogFiles.map(async (file) => {
             const res = await fetch(`/blogs/${file}`);
             const text = await res.text();
-            const { attributes, body } = frontMatter(text);
-            return { ...attributes, content: body };
+            const { attributes } = frontMatter(text);
+            return { ...attributes, fileName: file.replace('.md', '') };
           })
         );
         setBlogs(blogData);
@@ -29,6 +30,10 @@ const BlogList = () => {
 
     fetchBlogs();
   }, []);
+
+  const handleCardClick = (fileName) => {
+    navigate(`/blog/${fileName}`);
+  };
 
   return (
     <Layout>
@@ -59,27 +64,35 @@ const BlogList = () => {
               display: "flex",
               flexDirection: { xs: "column" },
               alignSelf: "center",
-              backgroundImage: {
-                xs: "", sm: "radial-gradient(circle closest-side, rgba(72, 172, 240, 0.65) 10%, rgba(181, 37, 37, 0) 100%)"},
+              background: {
+                xs: "", sm: "radial-gradient(circle closest-side, rgba(72, 172, 240, 0.35) 0%, rgba(181, 37, 37, 0) 100%)"},
               textAlign: "center",
               fontSize: "clamp(3.5rem, 10vw, 4rem)",
             }}
           >
-            Anubhuti Blogs
+            The Anubhuti Blog
           </Typography>
         </Container>
       </Box>
       <Container sx={{ pt: 4, pb: 8 }}>
-        <ul>
+        <Grid container spacing={3}>
           {blogs.map((blog, index) => (
-            <li key={index}>
-              <Typography variant="h2">{blog.title}</Typography>
-              <Typography variant="h6" color="textSecondary">{blog.subtitle}</Typography>
-              <Typography variant="body2" color="textSecondary">{new Date(blog.date).toLocaleDateString()}</Typography>
-              <ReactMarkdown>{blog.content}</ReactMarkdown>
-            </li>
+            <Grid item xs={12} sm={6} md={4} key={index}>
+              <Card onClick={() => handleCardClick(blog.fileName)} sx={{ cursor: 'pointer' }}>
+                <CardActionArea>
+                  <CardContent>
+                    <Typography variant="h5" component="div">
+                      {blog.title}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      {blog.subtitle}
+                    </Typography>
+                  </CardContent>
+                </CardActionArea>
+              </Card>
+            </Grid>
           ))}
-        </ul>
+        </Grid>
       </Container>
     </Layout>
   );
