@@ -3,6 +3,7 @@ import ReactMarkdown from 'react-markdown';
 import Layout from '../views/Layout';
 import { Box, Container, Typography } from '@mui/material';
 import { alpha } from "@mui/material";
+import frontMatter from 'front-matter';
 
 const BlogList = () => {
   const [blogs, setBlogs] = React.useState([]);
@@ -16,7 +17,8 @@ const BlogList = () => {
           blogFiles.map(async (file) => {
             const res = await fetch(`/blogs/${file}`);
             const text = await res.text();
-            return { title: file.replace('.md', ''), content: text };
+            const { attributes, body } = frontMatter(text);
+            return { ...attributes, content: body };
           })
         );
         setBlogs(blogData);
@@ -57,13 +59,13 @@ const BlogList = () => {
               display: "flex",
               flexDirection: { xs: "column" },
               alignSelf: "center",
-              background: {
-                xs: "", sm: "radial-gradient(circle closest-side, rgba(72, 172, 240, 0.35) 0%, rgba(181, 37, 37, 0) 100%)"},
+              backgroundImage: {
+                xs: "", sm: "radial-gradient(circle closest-side, rgba(72, 172, 240, 0.65) 10%, rgba(181, 37, 37, 0) 100%)"},
               textAlign: "center",
               fontSize: "clamp(3.5rem, 10vw, 4rem)",
             }}
           >
-            Blog List
+            Anubhuti Blogs
           </Typography>
         </Container>
       </Box>
@@ -72,6 +74,8 @@ const BlogList = () => {
           {blogs.map((blog, index) => (
             <li key={index}>
               <Typography variant="h2">{blog.title}</Typography>
+              <Typography variant="h6" color="textSecondary">{blog.subtitle}</Typography>
+              <Typography variant="body2" color="textSecondary">{new Date(blog.date).toLocaleDateString()}</Typography>
               <ReactMarkdown>{blog.content}</ReactMarkdown>
             </li>
           ))}

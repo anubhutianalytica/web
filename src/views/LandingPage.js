@@ -21,7 +21,6 @@ export default function LandingPage() {
         <HowWeHelp />
         <LogoCollection />
         <Capabilities />
-        <Footer />
       </Layout>
     </ThemeProvider>
   );

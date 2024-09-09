@@ -13,5 +13,6 @@ collections:
     slug: "{{slug}}"       # URL-friendly slug for posts
     fields:                # Fields for each blog post
       - { label: "Title", name: "title", widget: "string" }
+      - { label: "Subtitle", name: "subtitle", widget: "string" }
       - { label: "Date", name: "date", widget: "datetime" }
       - { label: "Body", name: "body", widget: "markdown" }
