@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom/client';
 import './styles/index.css';
 import App from './App';
 import reportWebVitals from './utils/reportWebVitals';
-// import CMS from "decap-cms-app";
-// // Initialize the CMS object
-// CMS.init();
+import CMS from "decap-cms-app";
+// Initialize the CMS object
+CMS.init();
 // // Now the registry is available via the CMS object.
 // CMS.registerPreviewTemplate("my-template", MyTemplate);
 
