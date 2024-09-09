@@ -8,7 +8,7 @@ public_folder: "/images/uploads"
 collections:
   - name: "blog"           # The name of the collection
     label: "Blog"          # Label in the CMS UI
-    folder: "src/blogs"    # Folder to store blog posts (create this folder)
+    folder: "public/blogs"    # Folder to store blog posts (create this folder)
     create: true           # Allow users to create new posts
     slug: "{{slug}}"       # URL-friendly slug for posts
     fields:                # Fields for each blog post
