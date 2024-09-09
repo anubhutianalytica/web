@@ -13,7 +13,7 @@ const firebaseConfig = {
   storageBucket: "anubhuti-website.appspot.com",
   messagingSenderId: "612942568950",
   appId: "1:612942568950:web:e0a19b4d10a9b7f663bbd7",
-  measurementId: "G-K2RNZT0ZME"
+  // measurementId: "G-K2RNZT0ZME"  -- now using g-tag instead of firebase
 };
 
 // Initialize Firebase
