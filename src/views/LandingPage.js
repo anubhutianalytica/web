@@ -7,11 +7,9 @@ import Hero from '../components/Hero';
 import HowWeHelp from '../components/HowWeHelp';
 import LogoCollection from '../components/LogoCollection';
 import Capabilities from '../components/Capabilities';
-import Footer from '../components/Footer';
 
 export default function LandingPage() {
-  const [mode, setMode] = React.useState('light');
-  const LPtheme = createTheme(getLPTheme(mode));
+  const LPtheme = createTheme(getLPTheme('light'));
 
   return (
     <ThemeProvider theme={LPtheme}>

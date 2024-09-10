@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import Layout from '../views/Layout';
 import { Box, Container, Typography } from '@mui/material';
 import { alpha } from "@mui/material";
@@ -10,7 +10,6 @@ const Blog = () => {
   const { fileName } = useParams();
   const [blog, setBlog] = React.useState(null);
   const [error, setError] = React.useState(null);
-  const navigate = useNavigate();
 
   React.useEffect(() => {
     const fetchBlog = async () => {
