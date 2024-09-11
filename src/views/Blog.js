@@ -76,7 +76,7 @@ const Blog = () => {
           sx={{
             display: "flex",
             flexDirection: "column",
-            alignItems: "flex-start",
+            alignItems: "center",
             pt: { xs: 14, sm: 20 },
             pb: { xs: 8, sm: 12 },
             textAlign: 'center',
@@ -92,6 +92,11 @@ const Blog = () => {
               color: 'black',
               borderRadius: 2,
               textAlign: 'center',
+              fontSize: { xs: 'clamp(1.5rem, 5vw, 2.5rem)', sm: 'clamp(3.5rem, 10vw, 4rem)' },
+              overflowWrap: 'break-word', // Ensure text wraps within the viewport
+              whiteSpace: 'normal',
+              maxWidth: '90%', // Adjust maximum width for better mobile handling
+              mx: 'auto',
             }}
           >
             {blog?.title}
@@ -105,6 +110,7 @@ const Blog = () => {
               color: 'black',
               borderRadius: 2,
               textAlign: 'center',
+              fontSize: { xs: 'clamp(1rem, 4vw, 1.5rem)', sm: 'clamp(1.25rem, 4vw, 1.75rem)' },
             }}
           >
             {blog?.subtitle}
