@@ -3,7 +3,6 @@ import ReactMarkdown from 'react-markdown';
 import { useParams } from 'react-router-dom';
 import Layout from '../views/Layout';
 import { Box, Container, Typography } from '@mui/material';
-import { alpha } from "@mui/material";
 import frontMatter from 'front-matter';
 
 const Blog = () => {
@@ -49,19 +48,29 @@ const Blog = () => {
     );
   }
 
+  // Function to format the date like "1 January 2024"
+  const formatDate = (dateString) => {
+    const options = { day: 'numeric', month: 'long', year: 'numeric' };
+    return new Date(dateString).toLocaleDateString(undefined, options);
+  };
+
+  // Check if the image is not the default image
+  const isCustomImage = blog?.image && blog.image !== '/images/uploads/defaultBanner.png';
+
   return (
     <Layout>
       <Box
         id="hero"
-        sx={(theme) => ({
+        sx={{
           width: "100%",
-          backgroundImage:
-            theme.palette.mode === "light"
-              ? "linear-gradient(180deg, #48ACF0, #FFF)"
-              : `linear-gradient(#48ACF0, ${alpha("#090E10", 0.0)})`,
-          backgroundSize: "100% 20%",
+          backgroundImage: blog?.image
+            ? `url(${blog.image})`
+            : `url(/images/uploads/defaultBanner.png)`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
-        })}
+          color: "black",
+        }}
       >
         <Container
           sx={{
@@ -70,31 +79,71 @@ const Blog = () => {
             alignItems: "flex-start",
             pt: { xs: 14, sm: 20 },
             pb: { xs: 8, sm: 12 },
+            textAlign: 'center',
+            backdropFilter: 'blur(5px)', // Adds a subtle blur effect to the background
           }}
         >
           <Typography
             variant="h1"
             sx={{
-              display: "flex",
-              flexDirection: { xs: "column" },
-              alignSelf: "center",
-              background: {
-                xs: "", sm: "radial-gradient(circle closest-side, rgba(72, 172, 240, 0.35) 0%, rgba(181, 37, 37, 0) 100%)"},
-              textAlign: "center",
-              fontSize: "clamp(3.5rem, 10vw, 4rem)",
+              backgroundColor: 'rgba(255, 255, 255, 0.75)',
+              padding: '16px',
+              fontWeight: 'bold',
+              color: 'black',
+              borderRadius: 2,
+              textAlign: 'center',
             }}
           >
             {blog?.title}
           </Typography>
+          <Typography
+            variant="h6"
+            sx={{
+              backgroundColor: 'rgba(255, 255, 255, 0.75)',
+              marginTop: '8px',
+              padding: '8px',
+              color: 'black',
+              borderRadius: 2,
+              textAlign: 'center',
+            }}
+          >
+            {blog?.subtitle}
+          </Typography>
         </Container>
       </Box>
       <Container sx={{ pt: 4, pb: 8 }}>
-        <Typography variant="h6" color="textSecondary">
-          {blog?.subtitle}
+        {/* Display formatted date */}
+        <Typography variant="body2" color="textSecondary" sx={{ marginBottom: '16px' }}>
+          {blog?.date ? formatDate(blog?.date) : ''}
         </Typography>
-        <Typography variant="body2" color="textSecondary">
-          {new Date(blog?.date).toLocaleDateString()}
-        </Typography>
+
+        {/* Conditionally render the image in the content area only if it's not the default image */}
+        {isCustomImage && (
+          <Box
+            sx={{
+              mb: 4,
+              display: 'flex',
+              justifyContent: 'center',
+              maxHeight: '500px', // Max height constraint for the image
+              maxWidth: '100%', // Limit image to container width
+              overflow: 'hidden', // Ensure image never overflows
+            }}
+          >
+            <img
+              src={blog?.image}
+              alt={blog?.title}
+              style={{
+                maxWidth: '100%',
+                maxHeight: '500px', // Maintain a maximum height without cropping
+                objectFit: 'contain', // Ensure the image is never cropped, fits within bounds
+                borderRadius: '8px',
+                boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)',
+              }}
+            />
+          </Box>
+        )}
+
+        {/* Render blog content */}
         <ReactMarkdown>{blog?.content}</ReactMarkdown>
       </Container>
     </Layout>

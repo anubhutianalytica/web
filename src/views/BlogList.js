@@ -78,16 +78,51 @@ const BlogList = () => {
         <Grid container spacing={3}>
           {blogs.map((blog, index) => (
             <Grid item xs={12} sm={6} md={4} key={index}>
-              <Card onClick={() => handleCardClick(blog.fileName)} sx={{ cursor: 'pointer' }}>
-                <CardActionArea>
-                  <CardContent>
-                    <Typography variant="h5" component="div">
+              <Card
+                onClick={() => handleCardClick(blog.fileName)}
+                sx={{
+                  cursor: 'pointer',
+                  position: 'relative',
+                  height: 300, // Adjust the height as needed
+                  display: 'flex',
+                  alignItems: 'flex-end',
+                  backgroundImage: blog.image ? `url(${blog.image})` : `url(/images/uploads/defaultBanner.png)`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                  color: 'black',
+                  borderRadius: 2,
+                  overflow: 'hidden',
+                }}
+              >
+                <CardActionArea sx={{ height: '100%' }}>
+                  <CardContent
+                    sx={{
+                      position: 'relative',
+                      zIndex: 1,
+                      width: '100%',
+                      backgroundColor: 'rgba(255, 255, 255, 0.75)', // Semi-transparent background for readability
+                      padding: '16px',
+                      textAlign: 'center',
+                      backdropFilter: 'blur(5px)', // Adds a subtle blur effect to the background
+                    }}
+                  >
+                    <Typography variant="h5" component="div" sx={{ fontWeight: 'bold', color: 'black' }}>
                       {blog.title}
                     </Typography>
-                    <Typography variant="body2" color="text.secondary">
+                    <Typography variant="body2" sx={{ color: 'black' }}>
                       {blog.subtitle}
                     </Typography>
                   </CardContent>
+                  <Box
+                    sx={{
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                      backgroundColor: 'rgba(0, 0, 0, 0.4)', // Dark overlay to enhance text visibility
+                    }}
+                  />
                 </CardActionArea>
               </Card>
             </Grid>
