@@ -58,20 +58,6 @@ const BlogList = () => {
             pb: { xs: 8, sm: 12 },
           }}
         >
-          <Typography
-            variant="h1"
-            sx={{
-              display: "flex",
-              flexDirection: { xs: "column" },
-              alignSelf: "center",
-              background: {
-                xs: "", sm: "radial-gradient(circle closest-side, rgba(72, 172, 240, 0.35) 0%, rgba(181, 37, 37, 0) 100%)"},
-              textAlign: "center",
-              fontSize: "clamp(3.5rem, 10vw, 4rem)",
-            }}
-          >
-            The Anubhuti Blog
-          </Typography>
         </Container>
       </Box>
       <Container sx={{ pt: 4, pb: 8 }}>
