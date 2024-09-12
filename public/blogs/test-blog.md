@@ -1,7 +1,6 @@
 ---
-title: Why is Prediction Important?
-subtitle: Estimating demand to manage inventory, knowing future revenue for
-  strategic decision making and market estimation for competitive advantage
+title: How to know future sales or demand for Strategic planning?
+subtitle: Why is Prediction Important?
 date: 2024-09-09T17:46:00.000Z
 image: /images/uploads/why_prediction_imp.png
 ---
