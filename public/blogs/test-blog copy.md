@@ -13,21 +13,15 @@ Businesses encounter numerous challenges - from inefficient processes and strate
 Analytics-based consulting can provide:
 
 1. Strategic Planning: Clarifying long-term goals and crafting data-driven strategies.
-
 2. Operational Efficiency: Streamlining processes and reducing costs.
-
 3. Market Insights: Offering valuable industry knowledge and trend analysis.
-
 4. Technology Integration: Effective implementation of tech solutions like AI.
-
 5. Financial Management: Improving budgeting and financial strategies with precise data analysis.
-
-
 
 By adopting such a problem-solving approach, SMBs can address their challenges more effectively and make informed decisions to drive their success forward.
 
-
-
-
+Get in Touch:\
+<https://www.linkedin.com/company/anubhutianalytics/>\
+<https://anubhutianalytics.com/#/>
 
 \#Analytics hashtag#MSME hashtag#SMB hashtag#Consulting hashtag#ProblemSolving hashtag#Growth hashtag#Strategy hashtag#Businesses hashtag#Clients hashtag#Services
