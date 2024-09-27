@@ -29,9 +29,9 @@ function NavBar() {
   };
 
   const scrollToSection = (sectionId) => {
-    const isBlogPage = window.location.pathname === "/blog";
+    const isHomePage = window.location.pathname === "/";
 
-    if (isBlogPage) {
+    if (!isHomePage) {
       // Navigate to the home page
       window.location.href = "/";
 
