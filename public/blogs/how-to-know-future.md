@@ -20,8 +20,7 @@ Risk Mitigation: Identify and mitigate potential risks associated with fluctuati
 
 We at our company provide AI ML-based business analytics and cater to your needs with reduced project turnaround time, high customization to meet your business specific needs, and are adaptable to your budget allocations and requirements.
 
-Get in Touch:\
-<https://www.linkedin.com/company/anubhutianalytics/>\
-<https://anubhutianalytics.com/#/>
+**Get in Touch**:  
+[LinkedIn](https://www.linkedin.com/company/anubhutianalytics/)  
 
 \#Analytics #Consulting #Prediction #Forecasting

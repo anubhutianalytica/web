@@ -24,8 +24,7 @@ Analytics-based consulting can provide:
 
 By adopting such a problem-solving approach, SMBs can address their challenges more effectively and make informed decisions to drive their success forward.
 
-Get in Touch:\
-<https://www.linkedin.com/company/anubhutianalytics/>\
-<https://anubhutianalytics.com/#/>
+**Get in Touch**:  
+[LinkedIn](https://www.linkedin.com/company/anubhutianalytics/)  
 
 \#Analytics hashtag#MSME hashtag#SMB hashtag#Consulting hashtag#ProblemSolving hashtag#Growth hashtag#Strategy hashtag#Businesses hashtag#Clients hashtag#Services
