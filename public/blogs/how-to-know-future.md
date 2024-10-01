@@ -2,7 +2,7 @@
 title: How to know future sales or demand for Strategic planning?
 subtitle: Why is Prediction Important?
 date: 2024-09-09T17:46:00.000Z
-image: /images/uploads/why_prediction_imp.png
+image: https://cdn.betterproposals.io/blog/2023/03/guide-to-sales-forecasting.png
 ---
 Demand or revenue prediction (forecasting) is defined as utilizing available historical data, machine learning algorithms, and business knowledge to estimate demand (or revenue) for future months/weeks/days.
 
