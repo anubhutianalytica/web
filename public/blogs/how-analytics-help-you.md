@@ -2,7 +2,7 @@
 title: How can Analytics and Consulting help your company grow?
 subtitle: Problem Solving
 date: 2024-09-09T17:46:00.000Z
-image: /images/uploads/1724270390351.jfif
+image: https://viitorcloud.com/blog/wp-content/uploads/2024/08/how-data-analytics-consulting-can-help-small-businesses-grow.jpg
 ---
 Have you ever wondered how analytics and consulting can address everyday challenges faced by small and medium-sized businesses? 
 
