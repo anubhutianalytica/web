@@ -2,6 +2,7 @@
 title: Media Mix Modeling
 subtitle: Value Proposition and Explainer
 date: 2024-10-02T03:54:00.000Z
+image: https://cdn.prod.website-files.com/5dfbb65fcb94d5455876bad9/641365725f8a0b8565dfee53_Invoca-Media_Mix_Modeling_Guide-blog-1920x1080-p-1600.png
 ---
 ## Understanding Promotional Efforts and Attribution
 
