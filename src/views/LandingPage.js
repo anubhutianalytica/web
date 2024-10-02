@@ -7,6 +7,7 @@ import Hero from '../components/Hero';
 import HowWeHelp from '../components/HowWeHelp';
 import LogoCollection from '../components/LogoCollection';
 import Capabilities from '../components/Capabilities';
+import BlogCarousel from '../components/BlogListCarousel';
 
 export default function LandingPage() {
   const LPtheme = createTheme(getLPTheme('light'));
@@ -16,6 +17,7 @@ export default function LandingPage() {
       <CssBaseline />
       <Layout>
         <Hero />
+        <BlogCarousel />
         <HowWeHelp />
         <LogoCollection />
         <Capabilities />
