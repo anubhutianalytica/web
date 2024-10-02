@@ -95,6 +95,7 @@ export default function Hero() {
             backgroundSize: 'cover',
             borderRadius: '10px',
             outline: '1px solid',
+            
             outlineColor:
               theme.palette.mode === 'light'
                 ? alpha('#BFCCD9', 0.5)
