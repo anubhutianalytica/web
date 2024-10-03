@@ -1,24 +1,20 @@
-import React, { useState, useEffect } from "react";
 import {
-  Container,
-  Typography,
-  Button,
-  FormControl,
-  FormGroup,
-  FormControlLabel,
-  Checkbox,
-  List,
-  ListItem,
-  ListItemText,
   Box,
-  Paper,
+  Button,
+  Checkbox,
+  Container,
+  FormControl,
+  FormControlLabel,
+  FormGroup,
   Radio,
   Stack,
+  Typography,
 } from "@mui/material";
-import Layout from "./Layout";
+import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import QuestionTracker from "../components/QuestionTracker";
 import Recommendations from "../components/Recommendations";
+import Layout from "./Layout";
 
 const Quiz = () => {
   const [step, setStep] = useState(0);
@@ -51,20 +47,15 @@ const Quiz = () => {
     setAnswers((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleMultiSelectChange = (event) => {
-    const { value } = event.target;
-    setAnswers((prev) => ({ ...prev, challenges: value }));
-  };
-
   const isAnswerSelected = () => {
     const currentQuestion = questions[step];
     const answer = answers[currentQuestion.id];
-    
+
     // Check for radio question
     if (currentQuestion.type === "radio") {
       return !!answer;
     }
-    
+
     // Check for checkbox question
     if (currentQuestion.type === "checkbox") {
       return answers.challenges.length > 0;
@@ -199,10 +190,7 @@ const Quiz = () => {
                     </Stack>
                   </Stack>
                   {error && (
-                    <Typography
-                      color="error"
-                      sx={{ mt: 2 }}
-                    >
+                    <Typography color="error" sx={{ mt: 2 }}>
                       {error}
                     </Typography>
                   )}
