@@ -36,7 +36,7 @@ const Recommendations = ({ recommendations }) => {
     };
 
     emailjs
-      .send("service_id", "template_id", templateParams, "user_id")
+      .send("service_uz2igzf", "template_9ybq53v", templateParams, "veRG3IhECuVx5HtGC")
       .then((result) => {
         console.log(result.text);
       })
