@@ -73,6 +73,7 @@ const getDesignTokens = (mode) => ({
       light: secondary[300],
       main: secondary[500],
       dark: secondary[800],
+      contrastText: secondary[50],
       ...(mode === "dark" && {
         light: secondary[400],
         main: secondary[500],

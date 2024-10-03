@@ -119,10 +119,10 @@ const Quiz = () => {
         </Typography>
         <Box
           sx={{
-            padding: "16px",
-            border: "1px solid #ddd",
+            padding: "0px",
+            border: "0px solid",
             borderRadius: "8px",
-            backgroundColor: "#fff",
+            backgroundColor: "secondary.contrastText",
             boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
           }}
         >
@@ -138,6 +138,7 @@ const Quiz = () => {
                     spacing={2}
                     direction="row"
                     justifyContent="space-between"
+                    padding={"1.2em"}
                   >
                     <Stack spacing={2} className="options-stack">
                       {/* Use Stack to manage spacing */}
@@ -207,7 +208,7 @@ const Quiz = () => {
                   )}
                 </div>
               ))}
-              <div style={{ marginTop: "16px" }}>
+              <div style={{ paddingBottom: "0.4em", paddingLeft: "1.2em" }}>
                 <Button
                   variant="contained"
                   onClick={handleBack}
