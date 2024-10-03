@@ -23,6 +23,17 @@ const Quiz = () => {
     challenges: [],
     kpiInsights: "",
   });
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 600);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 600);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   const [showRecommendations, setShowRecommendations] = useState(false);
   const [recommendations, setRecommendations] = useState([]);
   const [questions, setQuestions] = useState([]);
@@ -181,7 +192,7 @@ const Quiz = () => {
                       )}
                     </Stack>
                     <Stack spacing={2} className="tracker-stack">
-                      {window.innerWidth >= 600 && (
+                      {!isMobile && (
                         <QuestionTracker
                           currentStep={step}
                           totalSteps={questions.length}
