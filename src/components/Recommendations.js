@@ -9,42 +9,97 @@ import {
   InputLabel,
   OutlinedInput,
   Button,
+  Snackbar,
 } from "@mui/material";
 import emailjs from "emailjs-com";
 import { useNavigate } from "react-router-dom";
 
 const Recommendations = ({ recommendations }) => {
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
-    message: "",
+    message:
+      "Tell us more about your business and services you would like to talk about",
   });
-  const [thankYouMessageVisible, setThankYouMessageVisible] = useState(false); // State for thank you message
+  const [thankYouMessageVisible, setThankYouMessageVisible] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+  const [snackbarOpen, setSnackbarOpen] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const validateForm = () => {
+    const { name, email, phone, message } = formData;
+
+    if (!name.trim()) {
+      setErrorMessage("Name is required.");
+      return false;
+    }
+    if (!/^[a-zA-Z\s]+$/.test(name)) {
+      setErrorMessage("Name must contain only letters.");
+      return false;
+    }
+
+    // Email validation
+    if (email && !/\S+@\S+\.\S+/.test(email)) {
+      setErrorMessage("Invalid email format.");
+      return false;
+    }
+
+    // Phone validation
+    if (phone && !/^[\d\s+()-]+$/.test(phone)) {
+      setErrorMessage("Invalid phone number format.");
+      return false;
+    }
+
+    // Check that at least one of email or phone is provided
+    if (!email && !phone) {
+      setErrorMessage("Please provide at least one of Email or Phone.");
+      return false;
+    }
+
+    // Message validation
+    if (message && message.length > 500) {
+      setErrorMessage("Message cannot exceed 500 characters.");
+      return false;
+    }
+
+    // Clear error message if all validations pass
+    setErrorMessage("");
+    return true;
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    if (!validateForm()) {
+      setSnackbarOpen(true);
+      return; // Stop the submission process
+    }
+
     const templateParams = {
-      from_name: formData.name,
-      user_email: formData.email,
-      user_phone: formData.phone,
-      message: formData.message,
+      from_name: sanitizeInput(formData.name),
+      user_email: sanitizeInput(formData.email),
+      user_phone: sanitizeInput(formData.phone),
+      message: sanitizeInput(formData.message),
       recommendations: recommendations.join(", "),
     };
 
     emailjs
-      .send("service_uz2igzf", "template_9ybq53v", templateParams, "veRG3IhECuVx5HtGC")
+      .send(
+        "service_uz2igzf",
+        "template_9ybq53v",
+        templateParams,
+        "veRG3IhECuVx5HtGC"
+      )
       .then((result) => {
         console.log(result.text);
-        setThankYouMessageVisible(true); // Show thank you message
+        setThankYouMessageVisible(true);
         setTimeout(() => {
-          navigate("/"); // Redirect to home after 3 seconds
+          navigate("/");
         }, 3000);
       })
       .catch((error) => {
@@ -52,7 +107,15 @@ const Recommendations = ({ recommendations }) => {
       });
   };
 
-  // Remove duplicates from recommendations
+  const sanitizeInput = (input) => {
+    // Remove potential harmful characters and trim the input
+    return input.replace(/<[^>]*>/g, "").trim();
+  };
+
+  const handleCloseSnackbar = () => {
+    setSnackbarOpen(false);
+  };
+
   const uniqueRecommendations = [...new Set(recommendations)];
 
   return (
@@ -132,8 +195,8 @@ const Recommendations = ({ recommendations }) => {
               }}
             >
               🌟 Connect with us and unlock exclusive offers! Get a{" "}
-              <u>20% discount</u> on our services and experience the best we have to
-              offer! 🎉
+              <u>20% discount</u> on our services and experience the best we
+              have to offer! 🎉
             </Typography>
 
             <FormControl fullWidth variant="outlined" margin="normal">
@@ -188,9 +251,16 @@ const Recommendations = ({ recommendations }) => {
               color="primary"
               sx={{ mt: 2 }}
             >
-              Connect
+              Submit
             </Button>
           </Box>
+
+          <Snackbar
+            open={snackbarOpen}
+            autoHideDuration={6000}
+            onClose={handleCloseSnackbar}
+            message={errorMessage}
+          />
         </>
       )}
     </Box>
