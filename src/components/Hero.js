@@ -42,7 +42,10 @@ export default function Hero() {
               sm: "radial-gradient(circle closest-side, rgba(72, 172, 240, 0.35) 0%, rgba(181, 37, 37, 0) 100%)",
             },
             textAlign: "center",
-            fontSize: "clamp(3.5rem, 10vw, 4rem)",
+            fontSize: {
+              xs: "2.5rem",
+              sm: "3rem",
+            },
           }}
         >
           Manage Your
@@ -50,7 +53,10 @@ export default function Hero() {
             component="span"
             variant="h1"
             sx={{
-              fontSize: "clamp(3rem, 10vw, 4rem)",
+              fontSize: {
+                xs: "2.8rem",
+                sm: "3.3rem",
+              },
               color: (theme) =>
                 theme.palette.mode === "light"
                   ? "primary.main"
