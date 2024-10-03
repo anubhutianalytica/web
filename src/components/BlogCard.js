@@ -1,9 +1,4 @@
-import {
-  Box,
-  Card,
-  CardContent,
-  Typography
-} from "@mui/material";
+import { Box, Card, CardContent, Typography, Tooltip } from "@mui/material";
 import * as React from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -44,7 +39,7 @@ export default function BlogCard({ blog }) {
             left: 0,
             right: 0,
             bottom: 0,
-            backgroundColor: "rgba(0, 0, 0, 0.25)",
+            backgroundColor: "rgba(255, 255, 255, 0.25)",
             zIndex: 1,
           }}
         ></Box>
@@ -58,23 +53,29 @@ export default function BlogCard({ blog }) {
             backgroundColor: "rgba(255, 255, 255, 0.4)", // Semi-transparent background for readability
             padding: "16px",
             textAlign: "center",
-            backdropFilter: "blur(1px)", // Adds a subtle blur effect to the background
+            backdropFilter: "blur(10px)", // Adds a subtle blur effect to the background
           }}
         >
+          <Tooltip title={blog.title}>
           <Typography
             variant="h5"
             sx={{
-              textDecoration: "none",
+              textAlign: "center", // Ensures the text is centered properly
+              padding: { xs: "0 10px", sm: "0 20px" }, // Adds some padding for smaller screens
               fontWeight: "bold",
               lineHeight: "1.2em",
-              height: "2.4em",
+              height: "3.4em",
               overflow: "hidden",
               textOverflow: "ellipsis",
             }}
           >
             {blog.title}
           </Typography>
-          <Typography variant="body2" color="inherit">
+          </Tooltip>
+          <Typography variant="body2" color="inherit"
+          sx ={{
+            pt: 2
+          }}>
             {blog.subtitle}
           </Typography>
         </CardContent>

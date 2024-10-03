@@ -1,0 +1,97 @@
+[
+  {
+    "id": "goal",
+    "label": "1. What is your primary business goal?",
+    "type": "radio",
+    "options": [
+      "Increase revenue",
+      "Reduce costs",
+      "Improve customer satisfaction",
+      "Enhance operational efficiency"
+    ]
+  },
+  {
+    "id": "challenges",
+    "label": "2. What is your biggest challenge? (Select all that apply)",
+    "type": "checkbox",
+    "options": [
+      "Tracking business performance",
+      "Understanding customer preferences",
+      "Optimizing supply chain",
+      "Reducing marketing expenses",
+      "Forecasting demand or sales"
+    ]
+  },
+  {
+    "id": "kpiInsights",
+    "label": "3. Do you have insights into your Key Performance Indicators (KPIs)?",
+    "type": "radio",
+    "options": [
+      "Yes, but I need more detailed tracking",
+      "No, I don’t track KPIs effectively",
+      "Somewhat, but it’s not centralized"
+    ]
+  },
+  {
+    "id": "customerSegmentation",
+    "label": "4. Are you segmenting your customers effectively?",
+    "type": "radio",
+    "options": [
+      "Yes, we have defined segments",
+      "No, we treat all customers similarly",
+      "We have some segmentation, but it’s not effective"
+    ]
+  },
+  {
+    "id": "marketMix",
+    "label": "5. Do you have a clear understanding of your marketing channels' ROI?",
+    "type": "radio",
+    "options": [
+      "Yes, we can calculate it",
+      "No, we struggle to measure ROI",
+      "We have partial data on marketing effectiveness"
+    ]
+  },
+  {
+    "id": "supplyChain",
+    "label": "6. Are you facing any issues in your supply chain?",
+    "type": "checkbox",
+    "options": [
+      "Inventory management",
+      "Supplier reliability",
+      "Distribution delays",
+      "Demand forecasting",
+      "Cost control"
+    ]
+  },
+  {
+    "id": "forecasting",
+    "label": "7. How accurately can you forecast your demand or sales?",
+    "type": "radio",
+    "options": [
+      "We have accurate forecasts",
+      "We struggle with accurate forecasting",
+      "We forecast but with significant error"
+    ]
+  },
+  {
+    "id": "costOptimization",
+    "label": "8. Do you actively optimize operational costs?",
+    "type": "radio",
+    "options": [
+      "Yes, we regularly optimize costs",
+      "No, cost optimization is a challenge",
+      "Somewhat, but we need more insights"
+    ]
+  },
+  {
+    "id": "dataUtilization",
+    "label": "9. Are you fully utilizing the data you collect to make business decisions?",
+    "type": "radio",
+    "options": [
+      "Yes, data drives our decisions",
+      "No, we don't use data as much as we should",
+      "Somewhat, but we lack deeper insights"
+    ]
+  }
+]

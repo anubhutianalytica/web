@@ -1,0 +1,43 @@
+{
+  "goals": {
+    "Enhance operational efficiency": ["Performance Dashboard"],
+    "Increase revenue": ["Customer Segmentation", "Market Mix Model"],
+    "Reduce costs": ["Cost Optimization", "Supply Chain Analytics"],
+    "Improve customer satisfaction": [
+      "Customer Analysis",
+      "Customer Segmentation"
+    ]
+  },
+  "challenges": {
+    "Tracking business performance": ["Performance Dashboard"],
+    "Understanding customer preferences": [
+      "Customer Segmentation",
+      "Customer Analysis"
+    ],
+    "Optimizing supply chain": ["Supply Chain Analytics"],
+    "Reducing marketing expenses": ["Market Mix Model"],
+    "Forecasting demand or sales": ["Forecasting"]
+  },
+  "kpiInsights": {
+    "No, I don’t track KPIs effectively": ["Performance Dashboard"]
+  },
+  "customerSegmentation": {
+    "No, we treat all customers similarly": ["Customer Segmentation"]
+  },
+  "marketMix": {
+    "No, we struggle to measure ROI": ["Market Mix Model"]
+  },
+  "supplyChain": {
+    "Demand forecasting": ["Forecasting", "Supply Chain Analytics"]
+  },
+  "costOptimization": {
+    "No, cost optimization is a challenge": ["Cost Optimization"]
+  },
+  "dataUtilization": {
+    "No, we don't use data as much as we should": [
+      "Performance Dashboard",
+      "Customer Segmentation",
+      "Cost Optimization"
+    ]
+  }
+}

@@ -72,7 +72,7 @@ const BlogCarousel = () => {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 3, // Number of blogs visible at a time on desktop
+    slidesToShow: 2, // Number of blogs visible at a time on desktop
     slidesToScroll: 1,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
