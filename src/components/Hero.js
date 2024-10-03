@@ -16,11 +16,12 @@ export default function Hero() {
         alignItems: "flex-start",
         pt: { xs: 4, sm: 2 },
         pb: { xs: 8, sm: 2 },
+        pl: { xs: 0, sm: 20 },
       }}
       className="container"
     >
       <Stack
-        spacing={2}
+        spacing={1}
         useFlexGap
         sx={{
           width: { xs: "100%", sm: "100%" },
@@ -76,7 +77,7 @@ export default function Hero() {
             sx={{
               lineHeight: "1.4",
               color: "#333",
-              maxWidth: "80%",
+              maxWidth: "60%",
             }}
           >
             Unlock the full potential of your business with tailored analytics
