@@ -4,6 +4,7 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import * as React from "react";
 import { useNavigate } from "react-router-dom";
+import HeroButton from "./HeroButton";
 
 export default function Hero() {
   const navigate = useNavigate();
@@ -83,22 +84,13 @@ export default function Hero() {
             Unlock the full potential of your business with tailored analytics
             and expert insights.
           </Typography>
-          <Button
+          <HeroButton
             variant="contained"
-            color="primary"
             size="large"
-            sx={{
-              padding: "12px 24px",
-              fontSize: "1.1rem",
-              borderRadius: "8px",
-              "&:hover": {
-                backgroundColor: "#155a9a",
-              },
-            }}
             onClick={() => navigate("/quiz")}
           >
             Click here to take the quiz
-          </Button>
+          </HeroButton>
         </Stack>
       </Stack>
     </Container>
