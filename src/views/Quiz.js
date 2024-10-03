@@ -3,20 +3,41 @@ import {
   Container,
   Typography,
   Button,
-  TextField,
   FormControl,
-  InputLabel,
-  Select,
-  MenuItem,
-  RadioGroup,
+  FormGroup,
   FormControlLabel,
-  Radio,
+  Checkbox,
   List,
   ListItem,
   ListItemText,
+  Box,
+  Paper,
 } from "@mui/material";
 import Layout from "./Layout";
 import Header from "../components/Header";
+
+const QuestionTracker = ({ currentStep, totalSteps }) => {
+  return (
+    <Box
+      sx={{
+        position: "fixed",
+        right: "16px",
+        top: "16px",
+        padding: "16px",
+        backgroundColor: "#f5f5f5",
+        border: "1px solid #ccc",
+        borderRadius: "8px",
+        boxShadow: "0 2px 4px rgba(0,0,0,0.2)",
+        zIndex: 1,
+      }}
+    >
+      <Typography variant="h6">Progress</Typography>
+      <Typography variant="body1">
+        Question {currentStep + 1} of {totalSteps}
+      </Typography>
+    </Box>
+  );
+};
 
 const Quiz = () => {
   const [step, setStep] = useState(0);
@@ -28,7 +49,7 @@ const Quiz = () => {
   const [showRecommendations, setShowRecommendations] = useState(false);
   const [recommendations, setRecommendations] = useState([]);
   const [questions, setQuestions] = useState([]);
-  const [recommendationLogic, setRecommendationLogic] = useState({});
+  const [recommendationLogic, setRecommendationLogic] = useState([]);
 
   useEffect(() => {
     const fetchQuestionsAndRecommendations = async () => {
@@ -86,71 +107,96 @@ const Quiz = () => {
       <Typography variant="h4" gutterBottom>
         Business Insight Quiz
       </Typography>
-      {!showRecommendations ? (
-        <form onSubmit={handleSubmit}>
-          {questions.map((question, index) => (
-            <div key={question.id} style={{ display: step === index ? "block" : "none" }}>
-              <Typography variant="h6">{question.label}</Typography>
-              {question.type === "radio" && (
-                <RadioGroup name={question.id} onChange={handleChange}>
-                  {question.options.map((option, idx) => (
-                    <FormControlLabel key={idx} value={option} control={<Radio />} label={option} />
-                  ))}
-                </RadioGroup>
-              )}
-              {question.type === "checkbox" && (
-                <FormControl fullWidth>
-                  <InputLabel>Challenges</InputLabel>
-                  <Select
-                    multiple
-                    value={answers.challenges}
-                    onChange={handleMultiSelectChange}
-                    renderValue={(selected) => selected.join(", ")}
-                  >
+      <Box
+        sx={{
+          padding: "16px",
+          border: "1px solid #ddd",
+          borderRadius: "8px",
+          backgroundColor: "#fff",
+          boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
+        }}
+      >
+        {!showRecommendations ? (
+          <form onSubmit={handleSubmit}>
+            {questions.map((question, index) => (
+              <div key={question.id} style={{ display: step === index ? "block" : "none" }}>
+                <Typography variant="h6">{question.label}</Typography>
+                {question.type === "radio" && (
+                  <FormGroup>
                     {question.options.map((option, idx) => (
-                      <MenuItem key={idx} value={option}>
-                        {option}
-                      </MenuItem>
+                      <FormControlLabel
+                        key={idx}
+                        control={<Checkbox />}
+                        label={option}
+                        onChange={handleChange}
+                        value={option}
+                        checked={answers[question.id] === option}
+                      />
                     ))}
-                  </Select>
-                </FormControl>
+                  </FormGroup>
+                )}
+                {question.type === "checkbox" && (
+                  <FormControl component="fieldset">
+                    <FormGroup>
+                      {question.options.map((option, idx) => (
+                        <FormControlLabel
+                          key={idx}
+                          control={
+                            <Checkbox
+                              checked={answers.challenges.includes(option)}
+                              onChange={(event) => {
+                                const newChallenges = event.target.checked
+                                  ? [...answers.challenges, option]
+                                  : answers.challenges.filter((challenge) => challenge !== option);
+                                setAnswers((prev) => ({ ...prev, challenges: newChallenges }));
+                              }}
+                            />
+                          }
+                          label={option}
+                        />
+                      ))}
+                    </FormGroup>
+                  </FormControl>
+                )}
+              </div>
+            ))}
+            <div style={{ marginTop: "16px" }}>
+              <Button variant="contained" onClick={handleBack} disabled={step === 0}>
+                Back
+              </Button>
+              <Button variant="contained" onClick={handleNext} disabled={step === questions.length - 1} style={{ marginLeft: "8px" }}>
+                Next
+              </Button>
+              {step === questions.length - 1 && (
+                <Button type="submit" variant="contained" color="primary" style={{ marginLeft: "8px" }}>
+                  Submit
+                </Button>
               )}
             </div>
-          ))}
-          <div style={{ marginTop: "16px" }}>
-            <Button variant="contained" onClick={handleBack} disabled={step === 0}>
-              Back
-            </Button>
-            <Button variant="contained" onClick={handleNext} disabled={step === questions.length - 1} style={{ marginLeft: "8px" }}>
-              Next
-            </Button>
-            {step === questions.length - 1 && (
-              <Button type="submit" variant="contained" color="primary" style={{ marginLeft: "8px" }}>
-                Submit
-              </Button>
-            )}
-          </div>
-        </form>
-      ) : (
-        <div>
-          <Typography variant="h5" gutterBottom>
-            Recommendations
-          </Typography>
-          <List>
-            {recommendations.length > 0 ? (
-              recommendations.map((rec, idx) => (
-                <ListItem key={idx}>
-                  <ListItemText primary={rec} />
+          </form>
+        ) : (
+          <div>
+            <Typography variant="h5" gutterBottom>
+              Recommendations
+            </Typography>
+            <List>
+              {recommendations.length > 0 ? (
+                recommendations.map((rec, idx) => (
+                  <ListItem key={idx}>
+                    <ListItemText primary={rec} />
+                  </ListItem>
+                ))
+              ) : (
+                <ListItem>
+                  <ListItemText primary="No recommendations available." />
                 </ListItem>
-              ))
-            ) : (
-              <ListItem>
-                <ListItemText primary="No recommendations available." />
-              </ListItem>
-            )}
-          </List>
-        </div>
-      )}
+              )}
+            </List>
+          </div>
+        )}
+      </Box>
+      {/* Add the progress tracker only for desktop */}
+      {/* {window.innerWidth >= 600 && <QuestionTracker currentStep={step} totalSteps={questions.length} />} */}
     </Container>
     </Layout>
   );
