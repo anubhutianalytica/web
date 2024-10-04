@@ -117,20 +117,12 @@ function NavBar() {
               </Box>
               <Box sx={{ display: { xs: "none", md: "flex" } }}>
                 <NavBarMenuItem
-                  text={"Why Us?"}
-                  onClick={() => scrollToSection("whyUs")}
-                />
-                <NavBarMenuItem
-                  text={"Capabilities"}
-                  onClick={() => scrollToSection("capabilities")}
-                />
-                <NavBarMenuItem
                   text={"How We Help"}
                   onClick={() => scrollToSection("howWeHelp")}
                 />
                 <NavBarMenuItem
-                  text={"Services"}
-                  onClick={() => scrollToSection("services")}
+                  text={"Capabilities"}
+                  onClick={() => scrollToSection("capabilities")}
                 />
                 <NavBarMenuItem
                   text={"Contact Us"}
@@ -169,17 +161,11 @@ function NavBar() {
                       flexGrow: 1,
                     }}
                   ></Box>
-                  <MenuItem onClick={() => scrollToSection("whyUs")}>
-                    Why Us?
-                  </MenuItem>
-                  <MenuItem onClick={() => scrollToSection("capabilities")}>
-                    Capabilities
-                  </MenuItem>
                   <MenuItem onClick={() => scrollToSection("howWeHelp")}>
                     How We Help
                   </MenuItem>
-                  <MenuItem onClick={() => scrollToSection("services")}>
-                    Services
+                  <MenuItem onClick={() => scrollToSection("capabilities")}>
+                    Capabilities
                   </MenuItem>
                   <MenuItem onClick={() => scrollToSection("contactUs")}>
                     Contact Us
