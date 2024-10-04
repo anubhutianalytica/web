@@ -1,27 +1,18 @@
-import React, { useEffect, useState } from 'react';
-import { Grid, Container, Box, Typography } from '@mui/material';
-import CapabilitiesCard from './CapabilitiesCard';
-
-// Color mapping for industries
-const industryColors = {
-  "Performance & Strategy": "secondary.500",
-  "Sales & Marketing": "secondary.700",
-  "Manufacturing & Supply Chain": "secondary.300",
-};
+import React, { useEffect, useState } from "react";
+import { Grid, Container, Box, Typography } from "@mui/material";
+import CapabilitiesCard from "./CapabilitiesCard";
 
 const Capabilities = () => {
   const [capabilitiesData, setCapabilitiesData] = useState([]);
 
   useEffect(() => {
     // Fetch the JSON file from the public directory
-    fetch('/capabilities/capabilities.json')
-      .then(response => response.json())
-      .then(data => {
-        // Sort the data by industry
-        const sortedData = data.sort((a, b) => a.industry.localeCompare(b.industry));
-        setCapabilitiesData(sortedData);
-      })
-      .catch(error => console.error('Error fetching capabilities data:', error));
+    fetch("/capabilities/capabilities.json")
+      .then((response) => response.json())
+      .then((data) => setCapabilitiesData(data))
+      .catch((error) =>
+        console.error("Error fetching capabilities data:", error)
+      );
   }, []);
 
   return (
@@ -61,7 +52,7 @@ const Capabilities = () => {
             Discover the services we offer to support your business growth.
           </Typography>
         </Box>
-        
+
         <Grid container spacing={2.5}>
           {capabilitiesData.map((item, index) => (
             <Grid item xs={12} sm={6} md={4} key={index}>
@@ -72,7 +63,7 @@ const Capabilities = () => {
                 flow={item.flow}
                 description={item.description}
                 linkText={item.linkText}
-                cardColor={industryColors[item.industry]} // Pass the color based on industry
+                cardColor={item.color}
               />
             </Grid>
           ))}

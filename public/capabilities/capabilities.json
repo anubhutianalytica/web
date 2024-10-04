@@ -3,55 +3,64 @@
     "title": "Demand Forecasting",
     "description": "Analyzing historical sales data to predict future demand, enabling better inventory management and production planning.",
     "industry": "Manufacturing & Supply Chain",
-    "flow": "Flow"
+    "flow": "Flow",
+    "color": "secondary.300"
   },
   {
     "title": "Inventory Optimization",
     "description": "Assessing stock levels, turnover rates, and reorder points to minimize costs while maintaining product availability.",
     "industry": "Manufacturing & Supply Chain",
     "services": ["Email"],
-    "flow": "Flow"
+    "flow": "Flow",
+    "color": "secondary.300"
   },
   {
     "title": "Quality Control Implementation",
     "description": "Establishing quality control measures to ensure products meet standards and reduce defects.",
     "industry": "Manufacturing & Supply Chain",
-    "flow": "Flow"
+    "flow": "Flow",
+    "color": "secondary.300"
   },
   {
     "title": "Demand Alignment with Marketing Strategies",
     "description": "Aligning demand forecasts with marketing strategies to optimize product distribution and customer reach.",
     "industry": "Sales & Marketing",
-    "flow": "Flow"
+    "flow": "Flow",
+    "color": "secondary.500"
   },
   {
     "title": "Customer Engagement Enhancement",
     "description": "Enhancing customer engagement through data-driven sales analysis and targeted marketing efforts.",
     "industry": "Sales & Marketing",
-    "flow": "Flow"
+    "flow": "Flow",
+    "color": "secondary.500"
   },
   {
     "title": "Performance Metrics Monitoring",
     "description": "Monitoring performance metrics to evaluate the success of sales and marketing campaigns.",
     "industry": "Sales & Marketing",
-    "flow": "Flow"
+    "flow": "Flow",
+    "color": "secondary.500"
   },
   {
     "title": "Long-term Strategy Development",
     "description": "Developing long-term strategies for sustainable growth, leveraging industry trends and performance metrics.",
     "industry": "Performance & Strategy",
-    "flow": "Flow"
+    "flow": "Flow",
+    "color": "secondary.700"
   },
   {
     "title": "SWOT Analysis",
     "description": "Conducting SWOT analysis to identify strengths, weaknesses, opportunities, and threats for strategic planning.",
     "industry": "Performance & Strategy",
-    "flow": "Flow"
+    "flow": "Flow",
+    "color": "secondary.700"
   },
   {
     "title": "Business Model Innovation",
     "description": "Exploring innovative business models to create competitive advantages and drive growth.",
     "industry": "Performance & Strategy",
-    "flow": "Flow"
+    "flow": "Flow",
+    "color": "secondary.700"
   }
 ]
