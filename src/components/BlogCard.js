@@ -29,6 +29,11 @@ export default function BlogCard({ blog, showSubtitle = false }) {
           alignItems: "flex-end",
           borderRadius: 2,
           overflow: "hidden",
+          transition: "transform 0.3s ease, box-shadow 0.3s ease", // For smooth hover effect
+          "&:hover": {
+            transform: "scale(1.05)", // Slightly enlarge on hover
+            boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.3)", // Add shadow on hover
+          },
         }}
       >
         {/* Overlay to darken the background for text readability */}
@@ -41,6 +46,10 @@ export default function BlogCard({ blog, showSubtitle = false }) {
             bottom: 0,
             backgroundColor: "rgba(255, 255, 255, 0.25)",
             zIndex: 1,
+            transition: "background-color 0.3s ease", // Smooth transition for overlay
+            "&:hover": {
+              backgroundColor: "rgba(0, 0, 0, 0.4)", // Darken the overlay on hover
+            },
           }}
         ></Box>
 
@@ -54,6 +63,10 @@ export default function BlogCard({ blog, showSubtitle = false }) {
             padding: "16px",
             textAlign: "center",
             backdropFilter: "blur(5px)", // Adds a subtle blur effect to the background
+            transition: "backdrop-filter 0.3s ease", // Smooth transition for blur effect
+            "&:hover": {
+              backdropFilter: "blur(8px)", // Increase blur on hover
+            },
           }}
         >
           <Tooltip title={blog.title}>
