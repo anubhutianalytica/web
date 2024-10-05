@@ -19,10 +19,10 @@ const Capabilities = () => {
     <Box
       id="capabilities"
       sx={{
-        pt: { xs: 4, sm: 12 },
-        pb: { xs: 8, sm: 16 },
+        pt: { xs: 4, sm: 10 },
+        pb: { xs: 4, sm: 12 },
         color: "white",
-        bgcolor: "grey.0",
+        bgcolor: "grey.900",
       }}
     >
       <Container
@@ -44,7 +44,7 @@ const Capabilities = () => {
             className="capabilities-main-title"
             component="h2"
             variant="h4"
-            color="black"
+            color="white"
           >
             Consulting Capabilities
           </Typography>

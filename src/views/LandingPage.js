@@ -13,9 +13,9 @@ export default function LandingPage() {
         <Header/>
         <Hero />
         <BlogCarousel />
-        <HowWeHelp />
-        <LogoCollection />
         <Capabilities />
+        <LogoCollection />
+        <HowWeHelp />
       </Layout>
   );
 }
