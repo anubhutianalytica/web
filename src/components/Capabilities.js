@@ -1,19 +1,29 @@
 import React, { useEffect, useState } from "react";
-import { Grid, Container, Box, Typography } from "@mui/material";
+import { Grid, Container, Box, Typography, useMediaQuery } from "@mui/material";
 import CapabilitiesCard from "./CapabilitiesCard";
 
 const Capabilities = () => {
   const [capabilitiesData, setCapabilitiesData] = useState([]);
+  const [industry, setIndustry] = useState([]);
+  const isMobile = useMediaQuery((theme) => theme.breakpoints.down("sm")); // Check if the viewport is mobile
 
   useEffect(() => {
-    // Fetch the JSON file from the public directory
     fetch("/capabilities/capabilities.json")
       .then((response) => response.json())
-      .then((data) => setCapabilitiesData(data))
+      .then((data) => {
+        setCapabilitiesData(data);
+
+        // Set industry state based on viewport
+        if (isMobile) {
+          setIndustry(["Manufacturing & Supply Chain"]); // Set to only this industry on mobile
+        } else {
+          setIndustry([...new Set(data.map((item) => item.industry))]); // Set all unique industries on desktop
+        }
+      })
       .catch((error) =>
         console.error("Error fetching capabilities data:", error)
       );
-  }, []);
+  }, [isMobile]); // Dependency on isMobile to update when screen size changes
 
   return (
     <Box

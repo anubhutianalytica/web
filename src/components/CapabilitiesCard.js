@@ -1,24 +1,45 @@
-import React from 'react';
-import { Card, Typography, Box } from '@mui/material';
+import React from "react";
+import { Card, Typography, Box } from "@mui/material";
 
-const CapabilitiesCard = ({ title, industry, services, flow, description, linkText, cardColor }) => {
+const CapabilitiesCard = ({ title, industry, description, cardColor }) => {
   return (
     <Card
       sx={{
         p: 3,
-        height: "100%",
-        backgroundColor: cardColor || 'grey.500', // Default color if industry is not in the map
-        color: 'white',
+        height: "200px", // Fixed height for consistent card sizes
+        backgroundColor: cardColor || "grey.500", // Default color if industry is not in the map
+        color: "white",
         borderRadius: 2,
+        boxShadow: 3, // Add shadow for a modern look
+        transition: "transform 0.3s, box-shadow 0.3s", // Smooth transition for hover effects
+        "&:hover": {
+          transform: "scale(1.05)", // Scale effect on hover
+          boxShadow: 6, // Enhance shadow on hover
+        },
       }}
     >
-      <Typography variant="h5" component="h2" gutterBottom>
+      <Typography
+        variant="h5"
+        component="h2"
+        gutterBottom
+        sx={{ fontWeight: "bold", lineHeight: 1.2 }} // Adjust line height for better spacing
+      >
         {title}
       </Typography>
-      <Typography variant="subtitle1" sx={{ mb: 2 }}>
-        Industry: {industry}
+      <Typography variant="subtitle1" sx={{ mb: 1, fontStyle: "italic" }}>
+        {industry}
       </Typography>
-      <Typography variant="body2" sx={{ mb: 1 }}>
+      <Typography
+        variant="body2"
+        sx={{
+          mb: 2,
+          overflow: "hidden",
+          textOverflow: "ellipsis",
+          display: "-webkit-box",
+          WebkitLineClamp: 4,
+          WebkitBoxOrient: "vertical",
+        }}
+      >
         {description}
       </Typography>
     </Card>

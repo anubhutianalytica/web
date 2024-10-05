@@ -10,7 +10,6 @@
     "title": "Inventory Optimization",
     "description": "Assessing stock levels, turnover rates, and reorder points to minimize costs while maintaining product availability.",
     "industry": "Manufacturing & Supply Chain",
-    "services": ["Email"],
     "flow": "Flow",
     "color": "secondary.300"
   },
