@@ -11,51 +11,50 @@ import CapabilitiesCard from "./CapabilitiesCard";
 
 const Capabilities = () => {
   const [capabilitiesData, setCapabilitiesData] = useState([]);
-  const [filteredData, setFilteredData] = useState([]); // For displaying filtered capabilities
-  const [industries, setIndustries] = useState([]); // Available industries
-  const [selectedIndustry, setSelectedIndustry] = useState(""); // Currently selected industry
-  const isMobile = useMediaQuery((theme) => theme.breakpoints.down("sm")); // Check if the viewport is mobile
+  const [filteredData, setFilteredData] = useState([]);
+  const [selectedIndustry, setSelectedIndustry] = useState("");
+  const isMobile = useMediaQuery((theme) => theme.breakpoints.down("sm"));
 
   useEffect(() => {
     fetch("/capabilities/capabilities.json")
       .then((response) => response.json())
       .then((data) => {
         setCapabilitiesData(data);
-
-        // Set industries state based on the fetched data
-        const uniqueIndustries = [...new Set(data.map((item) => item.industry))];
-        setIndustries(uniqueIndustries); // Set all unique industries
-
-        // On mobile, set the default selected industry to the first alphabetically
-        if (isMobile && uniqueIndustries.length > 0) {
-          const firstIndustry = uniqueIndustries.sort()[0];
-          setSelectedIndustry(firstIndustry); // Set the first industry as selected
-          setFilteredData(data.filter((item) => item.industry === firstIndustry)); // Filter initially based on the first industry
-        } else if (!isMobile) {
-          // When switching to desktop, reset the selected industry to show all
-          setSelectedIndustry(""); // Reset selected industry
-          setFilteredData(data); // Show all capabilities
+        if (isMobile && data.length > 0) {
+          const firstIndustry = [
+            ...new Set(data.map((item) => item.industry)),
+          ].sort()[0];
+          setSelectedIndustry(firstIndustry);
+          setFilteredData(
+            data.filter((item) => item.industry === firstIndustry)
+          );
+        } else {
+          setSelectedIndustry("");
+          setFilteredData(data);
         }
       })
       .catch((error) =>
         console.error("Error fetching capabilities data:", error)
       );
-  }, [isMobile]); // Fetch data on mount and when isMobile changes
+  }, [isMobile]);
 
   useEffect(() => {
-    // Filter capabilities based on selected industry
     if (selectedIndustry) {
       setFilteredData(
         capabilitiesData.filter((item) => item.industry === selectedIndustry)
       );
     } else {
-      setFilteredData(capabilitiesData); // Reset to all capabilities if no industry is selected
+      setFilteredData(capabilitiesData);
     }
   }, [selectedIndustry, capabilitiesData]);
 
   const handleIndustrySelect = (industry) => {
-    setSelectedIndustry(industry); // Update selected industry when a chip is clicked
+    setSelectedIndustry(industry);
   };
+
+  const industries = [
+    ...new Set(capabilitiesData.map((item) => item.industry)),
+  ];
 
   return (
     <Box
@@ -82,12 +81,7 @@ const Capabilities = () => {
             textAlign: { sm: "left", md: "center" },
           }}
         >
-          <Typography
-            className="capabilities-main-title"
-            component="h2"
-            variant="h4"
-            color="white"
-          >
+          <Typography component="h2" variant="h4" color="white">
             Consulting Capabilities
           </Typography>
           <Typography variant="body1" sx={{ color: "grey.400" }}>
@@ -95,9 +89,18 @@ const Capabilities = () => {
           </Typography>
         </Box>
 
-        {/* Display chips for industries on mobile */}
         {isMobile && (
-          <Box sx={{ display: "flex", gap: 1, mb: 2 }}>
+          <Box
+            sx={{
+              display: "flex",
+              flexWrap: "wrap",
+              gap: 1,
+              mb: 2,
+              justifyContent: "center",
+              overflowX: "auto",
+              padding: "0 10px",
+            }}
+          >
             {industries.map((industry, index) => (
               <Chip
                 key={index}
