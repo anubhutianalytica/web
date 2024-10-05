@@ -14,8 +14,8 @@ export default function Hero() {
         display: "flex",
         flexDirection: "column",
         alignItems: "flex-start",
-        pt: { xs: 4, sm: 2 },
-        pb: { xs: 8, sm: 2 },
+        pt: { xs: 4, sm: 8 },
+        pb: { xs: 8, sm: 8 },
         pl: { xs: 0, sm: 20 },
       }}
       className="container"
