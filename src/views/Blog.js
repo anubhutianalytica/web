@@ -9,6 +9,7 @@ import getLPTheme from "../actions/getLPTheme";
 import EventIcon from "@mui/icons-material/Event";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { materialDark } from "react-syntax-highlighter/dist/esm/styles/prism";
+import "../styles/App.css";
 
 const Blog = () => {
   const { fileName } = useParams();
