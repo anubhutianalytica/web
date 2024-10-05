@@ -166,7 +166,7 @@ const Blog = () => {
             </Box>
           </Container>
         </Box>
-        <Container sx={{ pt: 4, pb: 8 }}>
+        <Container sx={{ pt: 4, pb: 8 }} className="blog-content-wrapper">
           {isCustomImage && (
             <Box
               sx={{
