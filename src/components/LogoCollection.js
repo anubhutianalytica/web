@@ -1,9 +1,8 @@
-import * as React from "react";
+import { Container } from "@mui/material";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import Grid from "@mui/material/Grid";
-import { useTheme } from "@mui/system";
-import useMediaQuery from "@mui/material/useMediaQuery";
+import * as React from "react";
+import Slider from "react-slick";
 
 const whiteLogos = [
   { url: "/logos/python.svg", name: "Python" },
@@ -23,40 +22,67 @@ const whiteLogos = [
 const logoStyle = {
   width: "100px",
   height: "80px",
-  margin: "0 32px",
+  margin: "0 auto",
   opacity: 0.9,
 };
 const logoNameStyle = {
   textAlign: "center",
-  marginTop: "4px",
+  marginTop: "8px",
+  fontSize: "0.875rem",
+  color: "#333",
+};
+
+const settings = {
+  dots: true,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 8,
+  slidesToScroll: 3,
+  autoplay: true,
+  autoplaySpeed: 2200,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 4,
+        slidesToScroll: 2,
+        autoplaySpeed: 1500,
+        arrows: false,
+      },
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 2,
+        autoplaySpeed: 1200,
+        arrows: false,
+      },
+    },
+  ],
 };
 
 export default function LogoCollection() {
   const logos = whiteLogos;
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
-    <Box id="logoCollection" sx={{ py: 4, overflowX: "auto" }}>
-      <Grid
-        container
-        justifyContent={isMobile ? "flex-start" : "center"}
-        wrap="nowrap"
-        sx={{ mt: 0.5, opacity: 0.6 }}
-      >
-        {logos.map((logo, index) => (
-          <Grid item key={index}>
-            <img
-              src={logo.url}
-              alt={`Missing Logo ${index + 1}`}
-              style={logoStyle}
-            />
-            <Typography variant="body2" style={logoNameStyle}>
-              {logo.name}
-            </Typography>
-          </Grid>
-        ))}
-      </Grid>
+    <Box id="logoCollection" sx={{ py: 4, overflowX: "hidden" }}>
+      <Container>
+        <Slider {...settings}>
+          {logos.map((logo, index) => (
+            <Box key={index} sx={{ textAlign: "center", padding: "16px" }}>
+              <img
+                src={logo.url}
+                alt={`Missing Logo ${index + 1}`}
+                style={logoStyle}
+              />
+              <Typography variant="body2" style={logoNameStyle}>
+                {logo.name}
+              </Typography>
+            </Box>
+          ))}
+        </Slider>
+      </Container>
     </Box>
   );
 }
