@@ -29,12 +29,16 @@ const CapabilitiesCard = ({
         variant="h5"
         component="h2"
         gutterBottom
+        color="white"
         sx={{ fontWeight: "bold", lineHeight: 1.2 }} // Adjust line height for better spacing
       >
         {title}
       </Typography>
       {!isVertical && ( // Render industry only if not in vertical mode
-        <Typography variant="subtitle1" sx={{ mb: 1, fontStyle: "italic" }}>
+        <Typography
+          variant="subtitle1"
+          sx={{ mb: 1, fontStyle: "italic", color: "white" }}
+        >
           {industry}
         </Typography>
       )}
@@ -46,6 +50,7 @@ const CapabilitiesCard = ({
           textOverflow: "ellipsis",
           display: "-webkit-box",
           WebkitBoxOrient: "vertical",
+          color: "white",
           ...(isVertical ? {} : { WebkitLineClamp: 4 }),
         }}
       >
