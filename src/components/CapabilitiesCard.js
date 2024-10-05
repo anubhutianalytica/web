@@ -33,9 +33,11 @@ const CapabilitiesCard = ({
       >
         {title}
       </Typography>
-      <Typography variant="subtitle1" sx={{ mb: 1, fontStyle: "italic" }}>
-        {industry}
-      </Typography>
+      {!isVertical && ( // Render industry only if not in vertical mode
+        <Typography variant="subtitle1" sx={{ mb: 1, fontStyle: "italic" }}>
+          {industry}
+        </Typography>
+      )}
       <Typography
         variant="body2"
         sx={{
@@ -43,8 +45,8 @@ const CapabilitiesCard = ({
           overflow: "hidden",
           textOverflow: "ellipsis",
           display: "-webkit-box",
-          WebkitLineClamp: isVertical ? 2 : 4,
           WebkitBoxOrient: "vertical",
+          ...(isVertical ? {} : { WebkitLineClamp: 4 }),
         }}
       >
         {description}

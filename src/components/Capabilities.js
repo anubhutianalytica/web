@@ -16,7 +16,7 @@ const Capabilities = () => {
   const [filteredData, setFilteredData] = useState([]);
   const [selectedIndustry, setSelectedIndustry] = useState("");
   const isMobile = useMediaQuery((theme) => theme.breakpoints.down("sm"));
-  const [goToSlide, setGoToSlide] = useState(null); // State for carousel slide management
+  const [goToSlide, setGoToSlide] = useState(0);
 
   useEffect(() => {
     fetch("/capabilities/capabilities.json")
@@ -31,6 +31,7 @@ const Capabilities = () => {
           setFilteredData(
             data.filter((item) => item.industry === firstIndustry)
           );
+          setGoToSlide(0);
         } else {
           setSelectedIndustry("");
           setFilteredData(data);
@@ -43,11 +44,14 @@ const Capabilities = () => {
 
   useEffect(() => {
     if (selectedIndustry) {
-      setFilteredData(
-        capabilitiesData.filter((item) => item.industry === selectedIndustry)
+      const newFilteredData = capabilitiesData.filter(
+        (item) => item.industry === selectedIndustry
       );
+      setFilteredData(newFilteredData);
+      setGoToSlide(0);
     } else {
       setFilteredData(capabilitiesData);
+      setGoToSlide(0);
     }
   }, [selectedIndustry, capabilitiesData]);
 
@@ -59,20 +63,21 @@ const Capabilities = () => {
     ...new Set(capabilitiesData.map((item) => item.industry)),
   ];
 
-  // Prepare carousel cards for capabilities
   const carouselCards = filteredData.map((item, index) => ({
     key: index,
     content: (
-      <CapabilitiesCard
-        title={item.title}
-        industry={item.industry}
-        services={item.services}
-        flow={item.flow}
-        description={item.description}
-        linkText={item.linkText}
-        cardColor={item.color}
-        isVertical={true}
-      />
+      <div onClick={() => setGoToSlide(index)}>
+        <CapabilitiesCard
+          title={item.title}
+          industry={item.industry}
+          services={item.services}
+          flow={item.flow}
+          description={item.description}
+          linkText={item.linkText}
+          cardColor={item.color}
+          isVertical={true}
+        />
+      </div>
     ),
   }));
 
@@ -101,7 +106,14 @@ const Capabilities = () => {
             textAlign: { sm: "left", md: "center" },
           }}
         >
-          <Typography component="h2" variant="h4" color="white">
+          <Typography
+            component="h2"
+            variant="h4"
+            color="white"
+            sx={{
+              whiteSpace: "nowrap",
+            }}
+          >
             Consulting Capabilities
           </Typography>
           <Typography variant="body1" sx={{ color: "grey.400" }}>
@@ -118,10 +130,10 @@ const Capabilities = () => {
               mb: 2,
               justifyContent: "center",
               overflowX: "auto",
-              padding: "0 10px",
+              padding: "0 5px",
             }}
           >
-            {industries.map((industry, index) => (
+            {industries.map((industry) => (
               <Button
                 key={industry}
                 onClick={() => handleIndustrySelect(industry)}
@@ -139,11 +151,11 @@ const Capabilities = () => {
 
         {/* Carousel for Capabilities Cards on Mobile */}
         {isMobile && (
-         <Box sx={{ width: "100%", height: "400px" }}>
+          <Box sx={{ width: "100%", height: "300px" }}>
             <Carousel
               slides={carouselCards}
               goToSlide={goToSlide}
-              offsetRadius={3}
+              offsetRadius={50}
               showNavigation={false}
               animationConfig={config.gentle}
             />
