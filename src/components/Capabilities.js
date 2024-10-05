@@ -8,12 +8,15 @@ import {
   Button,
 } from "@mui/material";
 import CapabilitiesCard from "./CapabilitiesCard";
+import Carousel from "react-spring-3d-carousel";
+import { config } from "react-spring";
 
 const Capabilities = () => {
   const [capabilitiesData, setCapabilitiesData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [selectedIndustry, setSelectedIndustry] = useState("");
   const isMobile = useMediaQuery((theme) => theme.breakpoints.down("sm"));
+  const [goToSlide, setGoToSlide] = useState(null); // State for carousel slide management
 
   useEffect(() => {
     fetch("/capabilities/capabilities.json")
@@ -55,6 +58,23 @@ const Capabilities = () => {
   const industries = [
     ...new Set(capabilitiesData.map((item) => item.industry)),
   ];
+
+  // Prepare carousel cards for capabilities
+  const carouselCards = filteredData.map((item, index) => ({
+    key: index,
+    content: (
+      <CapabilitiesCard
+        title={item.title}
+        industry={item.industry}
+        services={item.services}
+        flow={item.flow}
+        description={item.description}
+        linkText={item.linkText}
+        cardColor={item.color}
+        isVertical={true}
+      />
+    ),
+  }));
 
   return (
     <Box
@@ -117,21 +137,37 @@ const Capabilities = () => {
           </Box>
         )}
 
-        <Grid container spacing={2.5}>
-          {filteredData.map((item, index) => (
-            <Grid item xs={12} sm={6} md={4} key={index}>
-              <CapabilitiesCard
-                title={item.title}
-                industry={item.industry}
-                services={item.services}
-                flow={item.flow}
-                description={item.description}
-                linkText={item.linkText}
-                cardColor={item.color}
-              />
-            </Grid>
-          ))}
-        </Grid>
+        {/* Carousel for Capabilities Cards on Mobile */}
+        {isMobile && (
+         <Box sx={{ width: "100%", height: "400px" }}>
+            <Carousel
+              slides={carouselCards}
+              goToSlide={goToSlide}
+              offsetRadius={3}
+              showNavigation={false}
+              animationConfig={config.gentle}
+            />
+          </Box>
+        )}
+
+        {/* Grid for Capabilities Cards on Desktop */}
+        {!isMobile && (
+          <Grid container spacing={2.5}>
+            {filteredData.map((item, index) => (
+              <Grid item xs={12} sm={6} md={4} key={index}>
+                <CapabilitiesCard
+                  title={item.title}
+                  industry={item.industry}
+                  services={item.services}
+                  flow={item.flow}
+                  description={item.description}
+                  linkText={item.linkText}
+                  cardColor={item.color}
+                />
+              </Grid>
+            ))}
+          </Grid>
+        )}
       </Container>
     </Box>
   );

@@ -1,12 +1,19 @@
 import React from "react";
-import { Card, Typography, Box } from "@mui/material";
+import { Card, Typography } from "@mui/material";
 
-const CapabilitiesCard = ({ title, industry, description, cardColor }) => {
+const CapabilitiesCard = ({
+  title,
+  industry,
+  description,
+  cardColor,
+  isVertical = false,
+}) => {
   return (
     <Card
       sx={{
         p: 3,
-        height: "200px", // Fixed height for consistent card sizes
+        height: isVertical ? "300px" : "200px", // Adjust height based on orientation
+        width: isVertical ? "200px" : "auto", // Fixed width for vertical cards
         backgroundColor: cardColor || "grey.500", // Default color if industry is not in the map
         color: "white",
         borderRadius: 2,
@@ -36,7 +43,7 @@ const CapabilitiesCard = ({ title, industry, description, cardColor }) => {
           overflow: "hidden",
           textOverflow: "ellipsis",
           display: "-webkit-box",
-          WebkitLineClamp: 4,
+          WebkitLineClamp: isVertical ? 2 : 4,
           WebkitBoxOrient: "vertical",
         }}
       >
