@@ -13,6 +13,11 @@ const whiteLogos = [
   { url: "/logos/alteryx.svg", name: "Alteryx" },
   { url: "/logos/excel.svg", name: "Excel" },
   { url: "/logos/mssql.svg", name: "SQL" },
+  { url: "/logos/looker-studio.svg", name: "Looker Studio" },
+  { url: "/logos/docker.svg", name: "Docker" },
+  { url: "/logos/grafana.svg", name: "Grafana" },
+  { url: "/logos/influxdb.svg", name: "InfluxDB" },
+  { url: "/logos/postgresql.svg", name: "PostgreSQL" },
 ];
 
 const logoStyle = {
