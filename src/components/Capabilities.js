@@ -22,28 +22,25 @@ const Capabilities = () => {
       .then((data) => {
         setCapabilitiesData(data);
 
-        // Set industries state based on viewport
-        const uniqueIndustries = [
-          ...new Set(data.map((item) => item.industry)),
-        ];
+        // Set industries state based on the fetched data
+        const uniqueIndustries = [...new Set(data.map((item) => item.industry))];
         setIndustries(uniqueIndustries); // Set all unique industries
 
         // On mobile, set the default selected industry to the first alphabetically
         if (isMobile && uniqueIndustries.length > 0) {
           const firstIndustry = uniqueIndustries.sort()[0];
           setSelectedIndustry(firstIndustry); // Set the first industry as selected
+          setFilteredData(data.filter((item) => item.industry === firstIndustry)); // Filter initially based on the first industry
+        } else if (!isMobile) {
+          // When switching to desktop, reset the selected industry to show all
+          setSelectedIndustry(""); // Reset selected industry
+          setFilteredData(data); // Show all capabilities
         }
-        // Initialize filtered data based on the selected industry
-        setFilteredData(
-          isMobile
-            ? data.filter((item) => item.industry === selectedIndustry)
-            : data
-        );
       })
       .catch((error) =>
         console.error("Error fetching capabilities data:", error)
       );
-  }, [isMobile]); // Only fetch data on mount
+  }, [isMobile]); // Fetch data on mount and when isMobile changes
 
   useEffect(() => {
     // Filter capabilities based on selected industry
