@@ -4,6 +4,7 @@ subtitle: Value Proposition and Explainer
 date: 2024-10-02T03:54:00.000Z
 image: https://cdn.prod.website-files.com/5dfbb65fcb94d5455876bad9/641365725f8a0b8565dfee53_Invoca-Media_Mix_Modeling_Guide-blog-1920x1080-p-1600.png
 ---
+
 ## Understanding Promotional Efforts and Attribution
 
 In today’s competitive business landscape, companies deploy a diverse range of promotional efforts to build brand awareness and drive sales. These channels include:
@@ -21,6 +22,7 @@ Each promotional activity represents a significant investment, and there is a ne
 Attribution involves analyzing data across different channels and platforms to determine how much revenue is generated as a result of each promotional effort.
 
 #### Example:
+
 **Total Sales = Baseline Sales (BS) + Promotional Sales (PS)**
 
 - **BS** = Sales driven by your existing client base, carryover sales, brand equity, and market events.
@@ -28,11 +30,11 @@ Attribution involves analyzing data across different channels and platforms to d
 
 **Calculating PS**:
 
-```text
-PS = (Impact of Channel C1 * Promotions in Channel C1 * Cost Per Promotion C1) 
-   + (Impact of Channel C2 * Promotions in Channel C2 * Cost Per Promotion C2) 
-   + ...
-```
+> ```markdown
+> PS = (Impact of Channel C1 * Promotions in Channel C1 * Cost Per Promotion C1)
+>    + (Impact of Channel C2 * Promotions in Channel C2 * Cost Per Promotion C2)
+>    + ...
+> ```
 
 Accurate estimation of the impact (i.e., attribution) of channels can help identify:
 

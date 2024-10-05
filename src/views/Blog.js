@@ -1,11 +1,14 @@
 import React from "react";
-import ReactMarkdown from "react-markdown";
+import Markdown from "react-markdown";
 import { useParams } from "react-router-dom";
 import Layout from "../views/Layout";
 import { Box, Container, Typography } from "@mui/material";
 import frontMatter from "front-matter";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import getLPTheme from "../actions/getLPTheme";
+import EventIcon from "@mui/icons-material/Event";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { materialDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 const Blog = () => {
   const { fileName } = useParams();
@@ -51,6 +54,12 @@ const Blog = () => {
     );
   }
 
+  const customStyle = {
+    borderRadius: "8px",
+    boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)",
+  };
+  
+
   // Function to format the date like "1 January 2024"
   const formatDate = (dateString) => {
     const options = { day: "numeric", month: "long", year: "numeric" };
@@ -83,7 +92,7 @@ const Blog = () => {
               flexDirection: "column",
               alignItems: "center",
               pt: { xs: 14, sm: 20 },
-              pb: { xs: 8, sm: 12 },
+              pb: { xs: 4, sm: 4 },
               textAlign: "center",
               backdropFilter: "blur(5px)", // Adds a subtle blur effect to the background
             }}
@@ -126,19 +135,37 @@ const Blog = () => {
             >
               {blog?.subtitle}
             </Typography>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                backgroundColor: "rgba(255, 255, 255, 0.6)",
+                marginTop: "4px",
+                padding: "6px",
+                color: "black",
+                borderRadius: 2,
+                textAlign: "center",
+                fontSize: {
+                  xs: "clamp(0.75rem, 3vw, 1rem)",
+                  sm: "clamp(1rem, 3vw, 1.25rem)",
+                },
+              }}
+            >
+              <EventIcon sx={{ color: "gray", mr: 1 }} />
+              <Typography
+                variant="body2"
+                sx={{
+                  fontSize: "inherit",
+                  color: "inherit",
+                }}
+              >
+                {blog?.date ? formatDate(blog?.date) : ""}
+              </Typography>
+            </Box>
           </Container>
         </Box>
         <Container sx={{ pt: 4, pb: 8 }}>
-          {/* Display formatted date */}
-          <Typography
-            variant="body2"
-            color="textSecondary"
-            sx={{ marginBottom: "16px" }}
-          >
-            {blog?.date ? formatDate(blog?.date) : ""}
-          </Typography>
-
-          {/* Conditionally render the image in the content area only if it's not the default image */}
           {isCustomImage && (
             <Box
               sx={{
@@ -165,7 +192,29 @@ const Blog = () => {
           )}
 
           {/* Render blog content */}
-          <ReactMarkdown>{blog?.content}</ReactMarkdown>
+          <Markdown
+            children={blog?.content}
+            components={{
+              code(props) {
+                const { children, className, node, ...rest } = props;
+                const match = /language-(\w+)/.exec(className || "");
+                return match ? (
+                  <SyntaxHighlighter
+                    {...rest}
+                    PreTag="div"
+                    children={String(children).replace(/\n$/, "")}
+                    language={match[1]}
+                    style={materialDark}
+                    customStyle={customStyle}
+                  />
+                ) : (
+                  <code {...rest} className={className}>
+                    {children}
+                  </code>
+                );
+              },
+            }}
+          />
         </Container>
       </Layout>
     </ThemeProvider>
