@@ -4,8 +4,8 @@ import {
   Container,
   Box,
   Typography,
-  Chip,
   useMediaQuery,
+  Button,
 } from "@mui/material";
 import CapabilitiesCard from "./CapabilitiesCard";
 
@@ -102,14 +102,17 @@ const Capabilities = () => {
             }}
           >
             {industries.map((industry, index) => (
-              <Chip
-                key={index}
-                label={industry}
+              <Button
+                key={industry}
                 onClick={() => handleIndustrySelect(industry)}
-                color={selectedIndustry === industry ? "primary" : "default"}
-                variant={selectedIndustry === industry ? "filled" : "outlined"}
+                color={selectedIndustry !== industry ? "primary" : "inherit"}
+                variant={
+                  selectedIndustry !== industry ? "contained" : "outlined"
+                }
                 sx={{ cursor: "pointer" }}
-              />
+              >
+                {industry}
+              </Button>
             ))}
           </Box>
         )}
