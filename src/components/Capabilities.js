@@ -34,12 +34,16 @@ const Capabilities = () => {
           setSelectedIndustry(firstIndustry); // Set the first industry as selected
         }
         // Initialize filtered data based on the selected industry
-        setFilteredData(isMobile ? data : data); // On mobile, show all data initially
+        setFilteredData(
+          isMobile
+            ? data.filter((item) => item.industry === selectedIndustry)
+            : data
+        );
       })
       .catch((error) =>
         console.error("Error fetching capabilities data:", error)
       );
-  }, []); // Only fetch data on mount
+  }, [isMobile]); // Only fetch data on mount
 
   useEffect(() => {
     // Filter capabilities based on selected industry
